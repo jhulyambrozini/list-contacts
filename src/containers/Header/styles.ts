@@ -5,6 +5,7 @@ export const HeaderStyles = styled.header`
   justify-content: center;
   align-items: center;
   margin-top: 40px;
+
   img {
     height: 50px;
     padding-right: 16px;

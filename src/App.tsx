@@ -1,8 +1,10 @@
+import { Provider } from "react-redux"
+
 import Header from "./containers/Header/Header"
 import Main from "./containers/Main/Main"
+
 import GlobalStyle from "./styles"
 import store from "./store"
-import { Provider } from "react-redux"
 
 export type ContactProps = {
   id: number

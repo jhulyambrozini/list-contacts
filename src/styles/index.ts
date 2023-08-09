@@ -11,11 +11,10 @@ const GlobalStyle = createGlobalStyle`
 export default GlobalStyle
 
 export const Container = styled.div`
-  max-width: 960px;
+  max-width: 560px;
   width: 100%;
   margin: 0 auto;
   background-color: #fff;
-  padding: 20px;
   border-radius: 8px;
   text-align: center;
 `
@@ -28,4 +27,13 @@ export const Title = styled.h1`
    @media (max-width: 426px) {
     font-size: 26px;
   }
+`
+export const Button = styled.button`
+  background-color: #CB2B2B;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 8px;
+  cursor: pointer;
 `
