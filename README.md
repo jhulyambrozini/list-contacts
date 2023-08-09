@@ -1,5 +1,5 @@
 # App para gerenciamento de tarefas
-Este projeto foi desenvolvido para cumprir com a atividade proposta pelo curso da EBAC. Ele está disponivel em: [list-contacts](https://list-tasks-three.vercel.app/)
+Este projeto foi desenvolvido para cumprir com a atividade proposta pelo curso da EBAC. Ele está disponivel em: [list-contacts](https://list-contacts-orpin.vercel.app/)
 
 ## Tecnologias utilizadas
 - React
