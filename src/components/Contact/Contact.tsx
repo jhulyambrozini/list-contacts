@@ -24,9 +24,9 @@ const Contact = ({name, tel, email, id}: ContactProps) => {
 
   const cancelEdition = () => {
     setIsEditing(false)
-    setName(nameState)
-    setEmail(emailState)
-    setTel(telState)
+    setName(name)
+    setEmail(email)
+    setTel(tel)
   }
 
   const saveChanges = () => {
