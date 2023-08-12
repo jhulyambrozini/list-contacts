@@ -35,6 +35,10 @@ const Contact = ({name, tel, email, id}: ContactProps) => {
 
     if(existingEmail || existingTel){
       alert('Não é permetido contatos com mesmo número e/ou email')
+      setIsEditing(false)
+      setName(name)
+      setEmail(email)
+      setTel(tel)
       return
     }
       dispatch(edit({
