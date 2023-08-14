@@ -19,10 +19,20 @@ export const ContactStyle = styled.div`
 `
 export const InputList = styled.input`
   border: none;
+  outline: none;
   border-bottom: 1px solid #67b588;
   padding-bottom: 8px;
   background-color: transparent;
   font-size: 16px;
+`
+export const ButtonMore = styled.button`
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  img {
+    width: 40px;
+  }
 `
 export const ButtonDelCancel = styled(Button)`
   background-color: #CB2B2B;

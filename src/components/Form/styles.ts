@@ -7,6 +7,20 @@ export const FormStyle = styled.form`
   margin-bottom: 30px;
   gap: 8px;
 `
+export const FormGroup = styled.div`
+  display: grid;
+  font-size: 16px;
+  width: 400px;
+
+  label {
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 426px) {
+    width: 300px;
+
+  }
+`
 export const Field = styled.input`
   background-color: #f1f1f1;
   border: none;
@@ -15,17 +29,13 @@ export const Field = styled.input`
   border-radius: 8px;
   font-size: 14px;
 
+  &:focus {
+    border: none;
+    outline: 1px solid rgb(79, 67, 215);
+  }
+
   @media (max-width: 426px) {
     margin: 8px 0;
-  }
-`
-export const FormGroup = styled.div`
-  display: grid;
-  font-size: 16px;
-  width: 400px;
-
-  label {
-    margin-bottom: 8px;
   }
 `
 export const ButtonCreate = styled(Button)`

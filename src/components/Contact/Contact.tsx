@@ -1,21 +1,18 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import * as Styles from "./styles"
 import { ContactProps } from "../../App"
 import { edit, remove } from "../../store/reducers/contacts"
-import { RootReducer } from "../../store"
 
 const Contact = ({name, tel, email, id}: ContactProps) => {
-  const {items} = useSelector((state: RootReducer) => state.contact)
   const dispatch = useDispatch()
-
   const [isEditing, setIsEditing] = useState(false)
   const [nameState, setName] = useState('')
   const [emailState, setEmail] = useState('')
   const [telState, setTel] = useState('')
 
   useEffect(() => {
-    if(name.length > 0 || tel.length > 0 || email.length > 0) {
+    if(name.length || tel.length || email.length ) {
       setName(name)
       setEmail(email)
       setTel(tel)
@@ -30,25 +27,25 @@ const Contact = ({name, tel, email, id}: ContactProps) => {
   }
 
   const saveChanges = () => {
-    const existingEmail = items.find(c => c.email === emailState)
-    const existingTel = items.find(c => c.tel === telState)
+    const exitingItems = emailState !== email || telState !== tel
 
-    if(existingEmail || existingTel){
-      alert('Não é permetido contatos com mesmo número e/ou email')
-      setIsEditing(false)
-      setName(name)
-      setEmail(email)
-      setTel(tel)
-      return
+    if (exitingItems) {
+      dispatch(
+        edit({
+          email: emailState,
+          id,
+          name: nameState,
+          tel: telState,
+        })
+      );
+    } else if (emailState === email && telState === tel) {
+      // Inputs haven't been changed
+      setIsEditing(false);
+    } else {
+      alert("Não é permitido contatos com mesmo número e/ou email");
     }
-      dispatch(edit({
-        email: emailState,
-        id,
-        name: nameState,
-        tel: telState,
-        }))
-      setIsEditing(false)
-  }
+    setIsEditing(false);
+  };
 
   return (
     <Styles.ContactStyle>
@@ -59,8 +56,8 @@ const Contact = ({name, tel, email, id}: ContactProps) => {
       <Styles.Actions>
         {isEditing ? (
           <>
-            <Styles.ButtonDelCancel onClick={cancelEdition}>cancelar</Styles.ButtonDelCancel>
-            <Styles.ButtonSave onClick={saveChanges}>salvar</Styles.ButtonSave>
+            <Styles.ButtonDelCancel onClick={cancelEdition}>Cancelar</Styles.ButtonDelCancel>
+            <Styles.ButtonSave onClick={saveChanges}>Salvar</Styles.ButtonSave>
           </>
           ) :
           (

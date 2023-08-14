@@ -32,8 +32,13 @@ export const Button = styled.button`
   background-color: #CB2B2B;
   color: #fff;
   border: none;
+  outline: none;
   border-radius: 10px;
   font-size: 16px;
   padding: 8px;
   cursor: pointer;
+
+  &:hover {
+    opacity: .9;
+  }
 `
