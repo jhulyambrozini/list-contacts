@@ -19,6 +19,9 @@ export const FormGroup = styled.div`
   @media (max-width: 426px) {
     width: 300px;
 
+    label {
+      margin: 0;
+    }
   }
 `
 export const Field = styled.input`
@@ -40,6 +43,7 @@ export const Field = styled.input`
 `
 export const ButtonCreate = styled(Button)`
   background-color: rgb(79, 67, 215);
+  border-radius: 8px;
   margin-top: 16px;
 
   @media (max-width: 426px) {

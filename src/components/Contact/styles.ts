@@ -25,15 +25,6 @@ export const InputList = styled.input`
   background-color: transparent;
   font-size: 16px;
 `
-export const ButtonMore = styled.button`
-  border: none;
-  outline: none;
-  cursor: pointer;
-
-  img {
-    width: 40px;
-  }
-`
 export const ButtonDelCancel = styled(Button)`
   background-color: #CB2B2B;
 `

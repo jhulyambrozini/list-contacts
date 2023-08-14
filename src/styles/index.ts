@@ -33,12 +33,17 @@ export const Button = styled.button`
   color: #fff;
   border: none;
   outline: none;
-  border-radius: 10px;
+  border-radius: 50%;
   font-size: 16px;
   padding: 8px;
   cursor: pointer;
+  text-align: center;
 
   &:hover {
     opacity: .9;
+  }
+
+  img {
+    width: 24px;
   }
 `

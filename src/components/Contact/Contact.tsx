@@ -1,6 +1,12 @@
 import { useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
+
 import * as Styles from "./styles"
+import Close from '../../assets/close.svg'
+import Trash from '../../assets/trash.svg'
+import Pen from '../../assets/pen.svg'
+import CheckMark from '../../assets/checkmark.svg'
+
 import { ContactProps } from "../../App"
 import { edit, remove } from "../../store/reducers/contacts"
 
@@ -56,14 +62,14 @@ const Contact = ({name, tel, email, id}: ContactProps) => {
       <Styles.Actions>
         {isEditing ? (
           <>
-            <Styles.ButtonDelCancel onClick={cancelEdition}>Cancelar</Styles.ButtonDelCancel>
-            <Styles.ButtonSave onClick={saveChanges}>Salvar</Styles.ButtonSave>
+            <Styles.ButtonDelCancel onClick={cancelEdition}> <img src={Close} alt="Icon de x, para fechar edição." /> </Styles.ButtonDelCancel>
+            <Styles.ButtonSave onClick={saveChanges}><img src={CheckMark} alt="Icon concluido." /></Styles.ButtonSave>
           </>
           ) :
           (
           <>
-            <Styles.ButtonDelCancel onClick={() => dispatch(remove(id))}>Apagar</Styles.ButtonDelCancel>
-            <Styles.ButtonEdit onClick={() => setIsEditing(true)}>Editar</Styles.ButtonEdit>
+            <Styles.ButtonDelCancel onClick={() => dispatch(remove(id))}><img src={Trash} alt="Icon de lixeira" /></Styles.ButtonDelCancel>
+            <Styles.ButtonEdit onClick={() => setIsEditing(true)}><img src={Pen} alt="Icon de lápis." /></Styles.ButtonEdit>
           </>
           )
         }
