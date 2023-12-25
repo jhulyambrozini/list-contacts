@@ -48,6 +48,7 @@ export const Infos = styled.div`
   align-items: center;
   gap: 32px;
   width: calc(100% - 40px);
+  margin-right: 2.4rem;
 
   h2 {
     color: ${colors.grey01};
@@ -73,20 +74,4 @@ export const Infos = styled.div`
       font-size: 1.4rem;
     }
   }
-`
-
-export const ButtonEdit = styled.button`
-  display: flex;
-  width: 48px;
-  height: 48px;
-  padding: 1.6rem;
-  justify-content: center;
-  align-items: center;
-  margin-left: 2.4rem;
-
-  border: none;
-  border-radius: 50%;
-  background-color: ${colors.primary06};
-  box-shadow: 0px 2px 4px 0px rgba(100, 100, 100, 0.1);
-  cursor: pointer;
 `

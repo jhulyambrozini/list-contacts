@@ -1,8 +1,13 @@
 import { TContact } from '../../types/Contact'
 import editIcon from '../../assets/edit-icon.svg'
 import * as Style from './styles'
+import { Button } from '../Button'
+import ButtonIcon from '../Button/ButtonIcon'
 
 const Contact = ({ image, name, tel, email }: TContact) => {
+  function handleClick() {
+    return true
+  }
   return (
     <Style.ContactContainer>
       <Style.Image>
@@ -14,9 +19,9 @@ const Contact = ({ image, name, tel, email }: TContact) => {
         <span>{tel}</span>
         <span>{email}</span>
       </Style.Infos>
-      <Style.ButtonEdit>
-        <img src={editIcon} alt="" />
-      </Style.ButtonEdit>
+      <Button.Circle padding="1.6rem" onclick={handleClick}>
+        <ButtonIcon icon={editIcon} />
+      </Button.Circle>
     </Style.ContactContainer>
   )
 }

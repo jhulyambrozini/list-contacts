@@ -11,8 +11,6 @@ export const ListContactsContainer = styled.ul`
 
   li {
     width: 100%;
-    display: flex;
-    justify-content: center;
     list-style: none;
   }
 
