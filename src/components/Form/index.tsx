@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import InputGroup from '../InputGroup'
-import * as Style from './styLes'
 import { Button } from '../Button'
+import * as Style from './styles'
 import ButtonIcon from '../Button/ButtonIcon'
 import trashIcom from '../../assets/trash-icon.svg'
 
