@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Contact } from '../../types/Contact'
+import { TContact } from '../../types/Contact'
 
 type ContactsState = {
-  items: Contact[]
+  items: TContact[]
 }
 const initialState: ContactsState = {
   items: []
@@ -12,7 +12,7 @@ const contactSlice = createSlice({
   name: 'contacts',
   initialState,
   reducers: {
-    register: (state, action: PayloadAction<Omit<Contact, 'id'>>) => {
+    register: (state, action: PayloadAction<Omit<TContact, 'id'>>) => {
       const existingNumber = state.items.find(
         (c) => c.tel === action.payload.tel
       )
@@ -38,7 +38,7 @@ const contactSlice = createSlice({
       state.items = [...state.items.filter((c) => c.id !== action.payload)]
     },
 
-    edit: (state, action: PayloadAction<Contact>) => {
+    edit: (state, action: PayloadAction<TContact>) => {
       const indexOfContact = state.items.findIndex(
         (t) => t.id === action.payload.id
       )
