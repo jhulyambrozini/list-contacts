@@ -21,8 +21,14 @@
     "styled-components": "^6.0.7"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.6",
+    "@storybook/addon-interactions": "^7.6.6",
+    "@storybook/addon-links": "^7.6.6",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/blocks": "^7.6.6",
     "@storybook/react": "^7.5.3",
     "@storybook/react-vite": "^7.5.3",
+    "@storybook/test": "^7.6.6",
     "@testing-library/dom": "^9.3.3",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.1.2",

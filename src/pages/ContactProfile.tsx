@@ -1,12 +1,5 @@
-import Footer from '../components/Footer/Footer'
-
 const ContactProfile = () => {
-  return (
-    <div>
-      ContactProfile
-      <Footer />
-    </div>
-  )
+  return <div className="container">ContactProfile</div>
 }
 
 export default ContactProfile

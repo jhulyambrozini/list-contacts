@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
-const typography = {
-  sanSerif: "'Roboto', sans-serif",
-  serif: "'Poppins', sans-serif"
+export const typography = {
+  primary: "'Roboto', sans-serif",
+  secondary: "'Poppins', sans-serif"
 }
 
 export const breakpoints = {
@@ -34,11 +34,21 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: ${typography.sanSerif};
+    font-family: ${typography.primary};
   }
 
   html {
     font-size: 62.5%;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 `
 export default GlobalStyle

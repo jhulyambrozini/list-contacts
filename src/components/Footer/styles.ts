@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
 
-export const FooterStyles = styled.footer`
-  margin-bottom: 2.4rem;
+export const FooterContainer = styled.footer`
+  margin: 2.4rem 0;
 
   p {
     text-align: center;

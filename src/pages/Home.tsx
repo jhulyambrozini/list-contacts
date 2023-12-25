@@ -1,10 +1,10 @@
-import Footer from '../components/Footer/Footer'
+import Header from '../components/Header'
 
 const Home = () => {
   return (
-    <div>
-      home
-      <Footer />
+    <div className="container">
+      <Header />
+      <main></main>
     </div>
   )
 }
