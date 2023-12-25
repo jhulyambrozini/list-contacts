@@ -5,8 +5,8 @@ import { Button } from '../Button'
 import ButtonIcon from '../Button/ButtonIcon'
 
 const Contact = ({ image, name, tel, email }: TContact) => {
-  function handleClick() {
-    return true
+  function handleClickMore() {
+    return
   }
   return (
     <Style.ContactContainer>
@@ -19,7 +19,7 @@ const Contact = ({ image, name, tel, email }: TContact) => {
         <span>{tel}</span>
         <span>{email}</span>
       </Style.Infos>
-      <Button.Circle padding="1.6rem" onclick={handleClick}>
+      <Button.Circle padding="1.6rem" onclick={handleClickMore}>
         <ButtonIcon icon={editIcon} />
       </Button.Circle>
     </Style.ContactContainer>
