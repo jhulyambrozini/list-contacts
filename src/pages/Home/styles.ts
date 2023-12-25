@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
   padding: 0 2.4rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
   main {
     display: flex;
