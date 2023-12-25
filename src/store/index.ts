@@ -1,11 +1,16 @@
-import { configureStore } from "@reduxjs/toolkit"
+import { PreloadedState, combineReducers, configureStore } from "@reduxjs/toolkit"
 import contactReducer from "./reducers/contacts"
 
-const store = configureStore({
-  reducer: {
-    contact: contactReducer
-  }
+const rootReducer = combineReducers({
+  contact: contactReducer
 })
 
-export type RootReducer = ReturnType<typeof store.getState>
-export default store
+export function configStore(preloadedState?: PreloadedState<RootState>) {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState
+  })
+}
+
+export type RootState = ReturnType<typeof rootReducer>
+export type AppStore = ReturnType<typeof configStore> // esse é pra tipar o useSelect

@@ -1,26 +1,19 @@
-import { Provider } from "react-redux"
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
 
-import Header from "./containers/Header/Header"
-import Main from "./containers/Main/Main"
+import GlobalStyle from './styles'
+import RoutesProvider from './routes'
+import { configStore } from './store'
 
-import GlobalStyle from "./styles"
-import store from "./store"
-
-export type ContactProps = {
-  id: number
-  name: string
-  tel: string
-  email: string
-}
+const store = configStore()
 
 function App() {
-  return(
+  return (
     <Provider store={store}>
-      <div className="container">
+      <BrowserRouter>
         <GlobalStyle />
-        <Header />
-        <Main />
-      </div>
+        <RoutesProvider />
+      </BrowserRouter>
     </Provider>
   )
 }

@@ -1,0 +1,14 @@
+import { Routes, Route } from 'react-router-dom'
+import ContactProfile from './pages/ContactProfile'
+import Home from './pages/Home'
+
+const RoutesProvider = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/contact/:id" element={<ContactProfile />} />
+    </Routes>
+  )
+}
+
+export default RoutesProvider
