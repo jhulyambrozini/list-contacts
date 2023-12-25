@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 0 2.4rem;
 
   main {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  @media screen and (max-width: 426px) {
+    padding: 0 1.6rem;
   }
 `
 

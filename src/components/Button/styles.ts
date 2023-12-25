@@ -28,7 +28,7 @@ export const ButtonPrimaryContainer = styled(Button)`
 
 export const ButtonSecondaryContainer = styled(Button)`
   background-color: ${colors.primary07};
-
+  border-radius: 5px;
   span {
     font-size: 1.8rem;
   }

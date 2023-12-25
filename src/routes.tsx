@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import ContactProfile from './pages/ContactProfile'
+import ContactProfile from './pages/ContactProfile/ContactProfile'
 import Home from './pages/Home'
 
 const RoutesProvider = () => {

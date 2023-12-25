@@ -11,7 +11,7 @@ const Home = () => {
     return
   }
   return (
-    <HomeContainer>
+    <HomeContainer className="container">
       <Header />
       <main>
         <ListControls>
