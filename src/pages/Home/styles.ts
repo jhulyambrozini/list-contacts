@@ -11,5 +11,6 @@ export const HomeContainer = styled.div`
 
   @media screen and (max-width: 426px) {
     padding: 0 1.6rem;
+    width: 100vw;
   }
 `

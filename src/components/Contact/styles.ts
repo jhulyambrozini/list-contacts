@@ -4,7 +4,6 @@ import { colors } from '../../styles'
 export const ContactContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   max-width: 700px;
 
   padding-bottom: 2.4rem;
