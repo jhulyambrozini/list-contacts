@@ -1,14 +1,14 @@
 import type { Meta } from '@storybook/react'
 
-import Header from '.'
+import HeaderHome from '.'
 
 const meta = {
   title: 'components/Header',
-  component: Header
-} satisfies Meta<typeof Header>
+  component: HeaderHome
+} satisfies Meta<typeof HeaderHome>
 
 export default meta
 
 export const Template = () => {
-  return <Header />
+  return <HeaderHome />
 }

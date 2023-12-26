@@ -1,7 +1,7 @@
 import lineDeco from '../../assets/line-deco.svg'
 import { HeaderContainer, LineDeco } from './styles'
 
-const Header = () => (
+const HeaderHome = () => (
   <HeaderContainer>
     <h1>
       <span>AGENDA</span> DE
@@ -12,4 +12,5 @@ const Header = () => (
   </HeaderContainer>
 )
 
-export default Header
+export default HeaderHome
+

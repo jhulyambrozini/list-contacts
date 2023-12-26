@@ -43,15 +43,14 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     min-height: 100vh;
-    min-width: 100vw;
   }
 
   .container {
+    margin: 0 auto;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    margin: 0 auto;
   }
 `
 export default GlobalStyle

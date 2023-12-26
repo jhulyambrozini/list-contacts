@@ -21,7 +21,7 @@ export const InputGroupContainer = styled.div`
     border: none;
     border: 1px solid ${colors.grey02};
     border-radius: 5px;
-    padding: 1.7rem;
+    padding: 1.4rem;
   }
 
   @media screen and (max-width: 426px) {

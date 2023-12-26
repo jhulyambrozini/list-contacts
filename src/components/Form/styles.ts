@@ -1,15 +1,8 @@
 import styled from 'styled-components'
 
 export const FormContainer = styled.form`
-  margin: 0 6rem;
-  padding-top: 4rem;
-
-  @media screen and (max-width: 426px) {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-  }
+  padding: 4rem 4rem 0 4rem;
+  width: 100%;
 `
 
 export const FormInputsControls = styled.div`
@@ -19,6 +12,12 @@ export const FormInputsControls = styled.div`
 
   > div {
     width: 300px;
+  }
+
+  @media screen and (max-width: 768px) {
+    > div {
+      width: 100%;
+    }
   }
 
   @media screen and (max-width: 426px) {
@@ -31,9 +30,4 @@ export const FormInputsControls = styled.div`
 export const FormButtonsControls = styled.div`
   display: flex;
   justify-content: space-between;
-
-  @media screen and (max-width: 426px) {
-    align-items: center;
-    width: 100%;
-  }
 `
