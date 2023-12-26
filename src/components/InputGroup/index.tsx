@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from 'react'
+import { ChangeEventHandler, FocusEventHandler } from 'react'
 import * as Style from './styles'
 
 type InputGroupProps = {
@@ -6,14 +6,34 @@ type InputGroupProps = {
   type: string
   label: string
   value?: string
-  onchange: ChangeEventHandler<HTMLInputElement>
+  onChange: ChangeEventHandler<HTMLInputElement>
+  onBlur: FocusEventHandler<HTMLInputElement>
+  erroMessage: string | false | undefined
+  isSuccess: boolean
 }
 
-const InputGroup = ({ id, type, label, value, onchange }: InputGroupProps) => {
+const InputGroup = ({
+  id,
+  type,
+  label,
+  value,
+  onChange,
+  onBlur,
+  erroMessage,
+  isSuccess
+}: InputGroupProps) => {
   return (
     <Style.InputGroupContainer>
       <label htmlFor={id}>{label}</label>
-      <input type={type} id={id} value={value} onChange={onchange} />
+      <input
+        type={type}
+        id={id}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        className={(isSuccess ? 'success' : '') || (erroMessage ? 'error' : '')}
+      />
+      <span>{erroMessage}</span>
     </Style.InputGroupContainer>
   )
 }

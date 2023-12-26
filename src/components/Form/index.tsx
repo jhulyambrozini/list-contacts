@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEventHandler, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import InputGroup from '../InputGroup'
 import { Button } from '../Button'
 import * as Style from './styles'
@@ -9,8 +9,9 @@ import { register, remove } from '../../store/reducers/contacts'
 import { useNavigate } from 'react-router-dom'
 import { RootState } from '../../store'
 import { TContact } from '../../types/Contact'
-// import { TContact } from '../../types/Contact'
 import addPhotoIcon from '../../assets/addPhoto-icon.svg'
+import * as Yup from 'yup'
+import { useFormik } from 'formik'
 
 type FormProps = {
   id?: number
@@ -23,38 +24,38 @@ const Form = ({ id }: FormProps) => {
   const { items } = useSelector((state: RootState) => state.contact)
   const contactInfos = items.find((i: TContact) => i.id === id)
 
-  const [firstName, setFistName] = useState(contactInfos?.firstName || '')
-  const [lastName, setLastName] = useState(contactInfos?.lastName || '')
-  const [email, setEmail] = useState(contactInfos?.email || '')
-  const [tel, setTel] = useState(contactInfos?.tel || '')
   const [image, setImage] = useState<string | undefined>(
     contactInfos?.image || ''
   )
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault()
-
-    const inputValids =
-      email !== '' &&
-      firstName !== '' &&
-      lastName !== '' &&
-      tel !== '' &&
-      image &&
-      image !== ''
-
-    if (inputValids) {
-      const data = {
-        email: email,
-        firstName: firstName,
-        lastName: lastName,
-        tel: tel,
-        image: image
+  const form = useFormik({
+    initialValues: {
+      firstName: contactInfos?.firstName || '',
+      lastName: contactInfos?.lastName || '',
+      email: contactInfos?.email || '',
+      tel: contactInfos?.tel || ''
+    },
+    validationSchema: Yup.object({
+      firstName: Yup.string().required('O campo é obrigatório'),
+      lastName: Yup.string().required('O campo é obrigatório'),
+      tel: Yup.string().required('O campo é obrigatório'),
+      email: Yup.string()
+        .email('Digite um email válido')
+        .required('O campo é obrigatório')
+    }),
+    onSubmit: (values) => {
+      if (image) {
+        const data = {
+          ...values,
+          image: image
+        }
+        dispatch(register(data))
+        navigate('/')
+      } else {
+        alert('A imagem é obrigatória')
       }
-
-      dispatch(register(data))
-      navigate('/')
     }
-  }
+  })
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     const input = event.target
@@ -81,12 +82,30 @@ const Form = ({ id }: FormProps) => {
   const getFullName = () => {
     if (contactInfos?.firstName && contactInfos.lastName) {
       return `${contactInfos.firstName} ${contactInfos.lastName}`
+    } else if (form.values.firstName !== '' && form.values.lastName !== '') {
+      return `${form.values.firstName} ${form.values.lastName}`
     }
     return 'Insira um nome'
   }
 
+  const getMessageError = (field: string, message?: string) => {
+    const isTouched = field in form.touched
+    const isInvalid = field in form.errors
+
+    if (isTouched && isInvalid) return message
+    return false
+  }
+
+  const getSuccess = (field: string) => {
+    const isTouched = field in form.touched
+    const isInvalid = field in form.errors
+
+    if (isTouched && !isInvalid) return true
+    return false
+  }
+
   return (
-    <Style.FormContainer onSubmit={handleSubmit}>
+    <Style.FormContainer onSubmit={form.handleSubmit}>
       <Style.PhotoContainer>
         <Style.InputAddPhotoContainer>
           <input
@@ -96,7 +115,7 @@ const Form = ({ id }: FormProps) => {
             multiple={false}
           />
           {image ? (
-            <Style.Photo src={image} />
+            <Style.Photo src={image} alt="Imagem de perfil" />
           ) : (
             <img src={addPhotoIcon} alt="Icone de uma câmera" />
           )}
@@ -107,18 +126,24 @@ const Form = ({ id }: FormProps) => {
       <Style.FormInputsControls>
         <div>
           <InputGroup
-            id="firstname"
+            id="firstName"
             label="Nome"
             type="text"
-            value={firstName}
-            onchange={(e) => setFistName(e.currentTarget.value)}
+            onBlur={form.handleBlur}
+            onChange={form.handleChange}
+            value={form.values.firstName}
+            erroMessage={getMessageError('firstName', form.errors.firstName)}
+            isSuccess={getSuccess('firstName')}
           />
           <InputGroup
-            id="lastname"
+            id="lastName"
             label="Sobrenome"
             type="text"
-            value={lastName}
-            onchange={(e) => setLastName(e.currentTarget.value)}
+            onBlur={form.handleBlur}
+            onChange={form.handleChange}
+            value={form.values.lastName}
+            erroMessage={getMessageError('lastName', form.errors.lastName)}
+            isSuccess={getSuccess('lastName')}
           />
         </div>
 
@@ -127,15 +152,21 @@ const Form = ({ id }: FormProps) => {
             id="tel"
             label="Telefone"
             type="tel"
-            value={tel}
-            onchange={(e) => setTel(e.currentTarget.value)}
+            onBlur={form.handleBlur}
+            onChange={form.handleChange}
+            value={form.values.tel}
+            erroMessage={getMessageError('tel', form.errors.tel)}
+            isSuccess={getSuccess('tel')}
           />
           <InputGroup
             id="email"
             label="Email"
             type="email"
-            value={email}
-            onchange={(e) => setEmail(e.currentTarget.value)}
+            onBlur={form.handleBlur}
+            onChange={form.handleChange}
+            value={form.values.email}
+            erroMessage={getMessageError('email', form.errors.email)}
+            isSuccess={getSuccess('email')}
           />
         </div>
       </Style.FormInputsControls>
