@@ -13,7 +13,8 @@ const meta = {
     email: 'exemple@gmail.com',
     id: 1,
     image: 'https://placehold.co/90x90/030020/png',
-    name: 'Kamilly Silva',
+    firstName: 'Kamilly',
+    lastName: 'Silva',
     tel: '27 99999-9999'
   }
 } satisfies Meta<typeof Contact>

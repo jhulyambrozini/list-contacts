@@ -45,10 +45,6 @@ const Form = ({ id }: FormProps) => {
     }),
     onSubmit: (values) => {
       if (image) {
-        const data = {
-          ...values,
-          image: image
-        }
         if (id) {
           const dataWithId = {
             ...values,
@@ -58,6 +54,10 @@ const Form = ({ id }: FormProps) => {
           dispatch(edit(dataWithId))
           navigate('/')
         } else {
+          const data = {
+            ...values,
+            image: image
+          }
           dispatch(register(data))
           navigate('/')
         }
