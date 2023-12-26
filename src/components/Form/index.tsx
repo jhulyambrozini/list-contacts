@@ -1,37 +1,74 @@
-import { useRef } from 'react'
+import { FormEventHandler, useState } from 'react'
 import InputGroup from '../InputGroup'
 import { Button } from '../Button'
 import * as Style from './styles'
 import ButtonIcon from '../Button/ButtonIcon'
 import trashIcom from '../../assets/trash-icon.svg'
+import { useDispatch, useSelector } from 'react-redux'
+import { register, remove } from '../../store/reducers/contacts'
+import { useNavigate } from 'react-router-dom'
+import { RootState } from '../../store'
+import { TContact } from '../../types/Contact'
+// import { TContact } from '../../types/Contact'
 
-const Form = () => {
-  function handleChange() {
-    return
+type FormProps = {
+  id?: number
+}
+
+const Form = ({ id }: FormProps) => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const [firstName, setFistName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [tel, setTel] = useState('')
+
+  const { items } = useSelector((state: RootState) => state.contact)
+
+  const contactInfos = items.find((i: TContact) => i.id === id)
+
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault()
+
+    const inputValids =
+      email !== '' && firstName !== '' && lastName !== '' && tel !== ''
+
+    if (inputValids) {
+      const data = {
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        tel: tel
+      }
+
+      dispatch(register(data))
+      navigate('/')
+    }
   }
 
-  const firtsNameRef = useRef()
-  const lastNameRef = useRef()
-  const telRef = useRef()
-  const emailRef = useRef()
+  const removeContact = () => {
+    if (id) dispatch(remove(id))
+    navigate('/')
+  }
 
   return (
-    <Style.FormContainer>
+    <Style.FormContainer onSubmit={handleSubmit}>
       <Style.FormInputsControls>
         <div>
           <InputGroup
             id="firstname"
             label="Nome"
-            onchange={handleChange}
-            ref={() => firtsNameRef}
             type="text"
+            value={contactInfos?.firstName ? contactInfos.firstName : firstName}
+            onchange={(e) => setFistName(e.currentTarget.value)}
           />
           <InputGroup
             id="lastname"
             label="Sobrenome"
-            onchange={handleChange}
-            ref={() => lastNameRef}
             type="text"
+            value={contactInfos?.lastName ? contactInfos.lastName : lastName}
+            onchange={(e) => setLastName(e.currentTarget.value)}
           />
         </div>
 
@@ -39,26 +76,28 @@ const Form = () => {
           <InputGroup
             id="tel"
             label="Telefone"
-            onchange={handleChange}
-            ref={() => telRef}
             type="tel"
+            value={contactInfos?.tel ? contactInfos.tel : tel}
+            onchange={(e) => setTel(e.currentTarget.value)}
           />
           <InputGroup
             id="email"
             label="Email"
-            onchange={handleChange}
-            ref={() => emailRef}
             type="email"
+            value={contactInfos?.email ? contactInfos.email : email}
+            onchange={(e) => setEmail(e.currentTarget.value)}
           />
         </div>
       </Style.FormInputsControls>
 
       <Style.FormButtonsControls>
-        <Button.Circle padding="1.6rem" onclick={handleChange}>
-          <ButtonIcon icon={trashIcom} />
-        </Button.Circle>
+        {id && (
+          <Button.Circle type="button" padding="1.6rem" onclick={removeContact}>
+            <ButtonIcon icon={trashIcom} />
+          </Button.Circle>
+        )}
 
-        <Button.Secondary padding="1.2rem 2.4rem" onclick={handleChange}>
+        <Button.Secondary padding="1.2rem 2.4rem" type="submit">
           <Button.Label label="SALVAR" />
         </Button.Secondary>
       </Style.FormButtonsControls>

@@ -10,17 +10,16 @@ const ListContactsControls = () => {
     return
   }
   const goToForm = () => {
-    console.log('aaaaaaaaaaaaa')
-    navigate('/contact/1')
+    navigate('/new-contact')
   }
   return (
     <Style.ListControls>
-      <Button.Primary padding="1rem 2rem" onclick={goToForm}>
+      <Button.Primary type="button" padding="1rem 2rem" onclick={goToForm}>
         <Button.Icon icon={moreIcon} />
         <Button.Label label="ADICIONAR" />
       </Button.Primary>
 
-      <Button.Primary padding=".8rem" onclick={handleClickMore}>
+      <Button.Primary type="button" padding=".8rem" onclick={handleClickMore}>
         <Button.Icon icon={sortIcon} />
       </Button.Primary>
     </Style.ListControls>

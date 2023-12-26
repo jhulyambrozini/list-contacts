@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { colors } from '../../styles'
 
 export const ListContactsContainer = styled.ul`
   display: flex;
@@ -26,4 +27,9 @@ export const ListContactsContainer = styled.ul`
     width: 100%;
     list-style: none;
   }
+`
+export const ParagraphEmpty = styled.p`
+  font-size: 1.6rem;
+  color: ${colors.grey01};
+  text-align: center;
 `

@@ -20,9 +20,7 @@ const contactSlice = createSlice({
         (c) => c.email === action.payload.email
       )
 
-      if (existingNumber || existingEmail) {
-        alert('Este contato já existe na agenda')
-      } else {
+      if (!existingNumber || !existingEmail) {
         const lastContact = state.items[state.items.length - 1]
 
         const newContact = {

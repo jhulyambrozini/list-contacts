@@ -1,7 +1,8 @@
 export type TContact = {
   id: number
-  name: string
+  firstName: string
+  lastName: string
   tel: string
   email: string
-  image: string
+  // image: string
 }

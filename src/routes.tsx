@@ -6,6 +6,7 @@ const RoutesProvider = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/new-contact" element={<ContactProfile />} />
       <Route path="/contact/:id" element={<ContactProfile />} />
     </Routes>
   )
