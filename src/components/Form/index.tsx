@@ -1,4 +1,4 @@
-import { FormEventHandler, useState } from 'react'
+import { ChangeEvent, FormEventHandler, useState } from 'react'
 import InputGroup from '../InputGroup'
 import { Button } from '../Button'
 import * as Style from './styles'
@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import { RootState } from '../../store'
 import { TContact } from '../../types/Contact'
 // import { TContact } from '../../types/Contact'
+import addPhotoIcon from '../../assets/addPhoto-icon.svg'
 
 type FormProps = {
   id?: number
@@ -19,31 +20,56 @@ const Form = ({ id }: FormProps) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [firstName, setFistName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [tel, setTel] = useState('')
-
   const { items } = useSelector((state: RootState) => state.contact)
-
   const contactInfos = items.find((i: TContact) => i.id === id)
+
+  const [firstName, setFistName] = useState(contactInfos?.firstName || '')
+  const [lastName, setLastName] = useState(contactInfos?.lastName || '')
+  const [email, setEmail] = useState(contactInfos?.email || '')
+  const [tel, setTel] = useState(contactInfos?.tel || '')
+  const [image, setImage] = useState<string | undefined>(
+    contactInfos?.image || ''
+  )
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
 
     const inputValids =
-      email !== '' && firstName !== '' && lastName !== '' && tel !== ''
+      email !== '' &&
+      firstName !== '' &&
+      lastName !== '' &&
+      tel !== '' &&
+      image &&
+      image !== ''
 
     if (inputValids) {
       const data = {
         email: email,
         firstName: firstName,
         lastName: lastName,
-        tel: tel
+        tel: tel,
+        image: image
       }
 
       dispatch(register(data))
       navigate('/')
+    }
+  }
+
+  const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const input = event.target
+    const file = input.files?.[0]
+
+    if (file) {
+      const reader = new FileReader()
+
+      reader.onload = (e) => {
+        setImage(e.target?.result as string)
+      }
+
+      reader.readAsDataURL(file)
+    } else {
+      setImage('')
     }
   }
 
@@ -52,22 +78,46 @@ const Form = ({ id }: FormProps) => {
     navigate('/')
   }
 
+  const getFullName = () => {
+    if (contactInfos?.firstName && contactInfos.lastName) {
+      return `${contactInfos.firstName} ${contactInfos.lastName}`
+    }
+    return 'Insira um nome'
+  }
+
   return (
     <Style.FormContainer onSubmit={handleSubmit}>
+      <Style.PhotoContainer>
+        <Style.InputAddPhotoContainer>
+          <input
+            type="file"
+            onChange={handleImageChange}
+            accept="image/png, image/jpeg"
+            multiple={false}
+          />
+          {image ? (
+            <Style.Photo src={image} />
+          ) : (
+            <img src={addPhotoIcon} alt="Icone de uma câmera" />
+          )}
+        </Style.InputAddPhotoContainer>
+        <Style.FullName>{getFullName()}</Style.FullName>
+      </Style.PhotoContainer>
+
       <Style.FormInputsControls>
         <div>
           <InputGroup
             id="firstname"
             label="Nome"
             type="text"
-            value={contactInfos?.firstName ? contactInfos.firstName : firstName}
+            value={firstName}
             onchange={(e) => setFistName(e.currentTarget.value)}
           />
           <InputGroup
             id="lastname"
             label="Sobrenome"
             type="text"
-            value={contactInfos?.lastName ? contactInfos.lastName : lastName}
+            value={lastName}
             onchange={(e) => setLastName(e.currentTarget.value)}
           />
         </div>
@@ -77,14 +127,14 @@ const Form = ({ id }: FormProps) => {
             id="tel"
             label="Telefone"
             type="tel"
-            value={contactInfos?.tel ? contactInfos.tel : tel}
+            value={tel}
             onchange={(e) => setTel(e.currentTarget.value)}
           />
           <InputGroup
             id="email"
             label="Email"
             type="email"
-            value={contactInfos?.email ? contactInfos.email : email}
+            value={email}
             onchange={(e) => setEmail(e.currentTarget.value)}
           />
         </div>

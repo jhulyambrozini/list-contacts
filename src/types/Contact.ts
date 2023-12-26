@@ -4,5 +4,5 @@ export type TContact = {
   lastName: string
   tel: string
   email: string
-  // image: string
+  image: string
 }

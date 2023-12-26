@@ -15,7 +15,7 @@ const ListContacts = () => {
               <Contact
                 email={contact.email}
                 id={contact.id}
-                // image={contact.image}
+                image={contact.image}
                 firstName={contact.firstName}
                 lastName={contact.lastName}
                 tel={contact.tel}

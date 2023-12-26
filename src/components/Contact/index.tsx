@@ -5,14 +5,14 @@ import { Button } from '../Button'
 import ButtonIcon from '../Button/ButtonIcon'
 import { useNavigate } from 'react-router-dom'
 
-const Contact = ({ firstName, lastName, tel, email, id }: TContact) => {
+const Contact = ({ firstName, lastName, tel, email, id, image }: TContact) => {
   const navigate = useNavigate()
 
   return (
     <Style.ContactContainer>
       <Style.Image>
         <div className="line-deco"></div>
-        {/* <img src={image} alt={name} /> */}
+        <img src={image} alt={firstName + ' ' + lastName} />
       </Style.Image>
       <Style.Infos>
         <h2>{firstName + ' ' + lastName}</h2>

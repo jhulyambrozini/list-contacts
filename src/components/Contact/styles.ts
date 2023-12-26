@@ -24,6 +24,7 @@ export const Image = styled.div`
   img {
     width: 90px;
     height: 90px;
+    object-fit: cover;
     border-radius: 50%;
     box-shadow: 0px 2px 10px 0px rgba(41, 41, 41, 0.1);
     margin-right: 1.2rem;
