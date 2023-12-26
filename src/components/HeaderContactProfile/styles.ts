@@ -8,18 +8,23 @@ export const Header = styled.header`
   height: 308px;
   background-position: center;
   max-width: 769px;
+  position: relative;
 
   a {
+    position: absolute;
+    top: 2.5rem;
+    right: 3rem;
+    width: 48px;
+    height: 48px;
     display: flex;
-    justify-content: end;
-    margin-top: 3.2rem;
-    margin-right: 4.8rem;
+    justify-content: center;
+    align-items: center;
   }
 
   @media screen and (max-width: 426px) {
     a {
-      margin-top: 2.4rem;
-      margin-right: 2.4rem;
+      top: 2.4rem;
+      right: 2.4rem;
     }
   }
 `
@@ -29,7 +34,7 @@ export const ButtonAddPhotoContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 0.8rem;
+  margin-top: 6rem;
   gap: 8px;
 
   button {
@@ -54,8 +59,7 @@ export const ButtonAddPhotoContainer = styled.div`
   }
 
   @media screen and (max-width: 426px) {
-    margin-top: 3rem;
-
+    margin-top: 8rem;
     button {
       height: 100px;
       width: 100px;

@@ -30,7 +30,7 @@ export const Image = styled.div`
     margin-right: 1.2rem;
   }
 
-  @media screen and (max-width: 426px) {
+  @media screen and (max-width: 600px) {
     img {
       width: 70px;
       height: 70px;
@@ -61,7 +61,7 @@ export const Infos = styled.div`
     font-size: 1.6rem;
   }
 
-  @media screen and (max-width: 426px) {
+  @media screen and (max-width: 600px) {
     flex-direction: column;
     gap: 8px;
     align-items: start;

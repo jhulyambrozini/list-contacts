@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const ListContactsContainer = styled.ul`
   display: flex;
   flex-direction: column;
-  margin: 4.8rem 2.4rem;
+  margin-bottom: 4.8rem;
   gap: 24px;
   max-height: 100vh;
 

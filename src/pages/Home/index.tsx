@@ -6,7 +6,7 @@ import { HomeContainer } from './styles'
 
 const Home = () => {
   return (
-    <HomeContainer>
+    <HomeContainer className="container">
       <HeaderHome />
       <main>
         <ListContactsControls />
