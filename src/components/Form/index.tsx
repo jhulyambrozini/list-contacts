@@ -5,7 +5,7 @@ import * as Style from './styles'
 import ButtonIcon from '../Button/ButtonIcon'
 import trashIcom from '../../assets/trash-icon.svg'
 import { useDispatch, useSelector } from 'react-redux'
-import { register, remove } from '../../store/reducers/contacts'
+import { edit, register, remove } from '../../store/reducers/contacts'
 import { useNavigate } from 'react-router-dom'
 import { RootState } from '../../store'
 import { TContact } from '../../types/Contact'
@@ -49,8 +49,18 @@ const Form = ({ id }: FormProps) => {
           ...values,
           image: image
         }
-        dispatch(register(data))
-        navigate('/')
+        if (id) {
+          const dataWithId = {
+            ...values,
+            image: image,
+            id
+          }
+          dispatch(edit(dataWithId))
+          navigate('/')
+        } else {
+          dispatch(register(data))
+          navigate('/')
+        }
       } else {
         alert('A imagem é obrigatória')
       }
