@@ -12,6 +12,7 @@ import { TContact } from '../../types/Contact'
 import addPhotoIcon from '../../assets/addPhoto-icon.svg'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
+import { generateRandomImage, validateImageFormat } from '../../utils/image'
 
 type FormProps = {
   id?: number
@@ -45,24 +46,18 @@ const Form = ({ id }: FormProps) => {
     }),
     onSubmit: (values) => {
       if (image) {
-        if (id) {
-          const dataWithId = {
-            ...values,
-            image: image,
-            id
-          }
-          dispatch(edit(dataWithId))
-          navigate('/')
-        } else {
-          const data = {
-            ...values,
-            image: image
-          }
-          dispatch(register(data))
-          navigate('/')
+        const data = {
+          ...values,
+          image
         }
+        registerData(data)
       } else {
-        alert('A imagem é obrigatória')
+        const randomImage = generateRandomImage(form.values.firstName, 100, 100)
+        const data = {
+          ...values,
+          image: randomImage
+        }
+        registerData(data)
       }
     }
   })
@@ -71,7 +66,7 @@ const Form = ({ id }: FormProps) => {
     const input = event.target
     const file = input.files?.[0]
 
-    if (file) {
+    if (file && validateImageFormat(file)) {
       const reader = new FileReader()
 
       reader.onload = (e) => {
@@ -89,6 +84,40 @@ const Form = ({ id }: FormProps) => {
     navigate('/')
   }
 
+  const registerData = (values: Omit<TContact, 'id'>) => {
+    if (id) {
+      const dataWithId = {
+        ...values,
+        id
+      }
+      dispatch(edit(dataWithId))
+      navigate('/')
+    } else {
+      if (contactExist()) {
+        alert(
+          `Este telefone: ${form.values.tel} e email: ${form.values.email} já estão na agenad`
+        )
+      } else {
+        dispatch(register(values))
+        navigate('/')
+      }
+    }
+  }
+
+  const contactExist = () => {
+    for (let contact of items) {
+      console.log(contact)
+      const emailExists = contact.email === form.values.email
+      const telExists = contact.tel === form.values.tel
+
+      if (emailExists && telExists) {
+        return true
+      }
+    }
+
+    return false
+  }
+
   const getFullName = () => {
     if (contactInfos?.firstName && contactInfos.lastName) {
       return `${contactInfos.firstName} ${contactInfos.lastName}`
@@ -98,20 +127,20 @@ const Form = ({ id }: FormProps) => {
     return 'Insira um nome'
   }
 
-  const getMessageError = (field: string, message?: string) => {
+  const getFieldStatus = (field: string) => {
     const isTouched = field in form.touched
     const isInvalid = field in form.errors
+    return { isTouched, isInvalid }
+  }
 
-    if (isTouched && isInvalid) return message
-    return false
+  const getMessageError = (field: string, message?: string) => {
+    const { isTouched, isInvalid } = getFieldStatus(field)
+    return isTouched && isInvalid ? message : false
   }
 
   const getSuccess = (field: string) => {
-    const isTouched = field in form.touched
-    const isInvalid = field in form.errors
-
-    if (isTouched && !isInvalid) return true
-    return false
+    const { isTouched, isInvalid } = getFieldStatus(field)
+    return isTouched && !isInvalid
   }
 
   return (
