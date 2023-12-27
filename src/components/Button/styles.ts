@@ -24,11 +24,17 @@ export const ButtonPrimaryContainer = styled(Button)`
   span {
     font-size: 1.6rem;
   }
+
+  &:disabled {
+    color: ${colors.primary03};
+    border: 1px solid ${colors.primary06};
+  }
 `
 
 export const ButtonSecondaryContainer = styled(Button)`
   background-color: ${colors.primary07};
   border-radius: 5px;
+
   span {
     font-size: 1.8rem;
   }

@@ -13,9 +13,10 @@ import addPhotoIcon from '../../assets/addPhoto-icon.svg'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import { generateRandomImage, validateImageFormat } from '../../utils/image'
+import { v4 as uuidv4 } from 'uuid'
 
 type FormProps = {
-  id?: number
+  id?: string
 }
 
 const Form = ({ id }: FormProps) => {
@@ -98,7 +99,11 @@ const Form = ({ id }: FormProps) => {
           `Este telefone: ${form.values.tel} ou email: ${form.values.email} já está na agenda`
         )
       } else {
-        dispatch(register(values))
+        const data = {
+          ...values,
+          id: uuidv4()
+        }
+        dispatch(register(data))
         navigate('/')
       }
     }

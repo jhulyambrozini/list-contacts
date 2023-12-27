@@ -14,7 +14,7 @@ const ContactProfile = () => {
           <img src={backIcon} alt="Seta de voltar" />
         </Link>
       </Style.Background>
-      <main>{id ? <Form id={Number(id)} /> : <Form />}</main>
+      <main>{id ? <Form id={id} /> : <Form />}</main>
     </Style.ContactProfileContainer>
   )
 }

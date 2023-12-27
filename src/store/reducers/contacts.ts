@@ -12,27 +12,11 @@ const contactSlice = createSlice({
   name: 'contacts',
   initialState,
   reducers: {
-    register: (state, action: PayloadAction<Omit<TContact, 'id'>>) => {
-      const existingNumber = state.items.find(
-        (c) => c.tel === action.payload.tel
-      )
-      const existingEmail = state.items.find(
-        (c) => c.email === action.payload.email
-      )
-
-      if (!existingNumber || !existingEmail) {
-        const lastContact = state.items[state.items.length - 1]
-
-        const newContact = {
-          ...action.payload,
-          id: lastContact ? lastContact.id + 1 : 1
-        }
-
-        state.items.push(newContact)
-      }
+    register: (state, action: PayloadAction<TContact>) => {
+      state.items.push({ ...action.payload })
     },
 
-    remove: (state, action: PayloadAction<number>) => {
+    remove: (state, action: PayloadAction<string>) => {
       state.items = [...state.items.filter((c) => c.id !== action.payload)]
     },
 
@@ -43,9 +27,21 @@ const contactSlice = createSlice({
       if (indexOfContact >= 0) {
         state.items[indexOfContact] = action.payload
       }
+    },
+
+    sort: (state) => {
+      state.items.sort((a, b) => {
+        if (a.firstName.toLocaleLowerCase() > b.firstName.toLocaleLowerCase()) {
+          return 1
+        }
+        if (a.firstName.toLocaleLowerCase() < b.firstName.toLocaleLowerCase()) {
+          return -1
+        }
+        return 0
+      })
     }
   }
 })
 
-export const { register, edit, remove } = contactSlice.actions
+export const { register, edit, remove, sort } = contactSlice.actions
 export default contactSlice.reducer

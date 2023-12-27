@@ -3,12 +3,15 @@ import sortIcon from '../../assets/sort-icon.svg'
 import { Button } from '../../components/Button'
 import { useNavigate } from 'react-router-dom'
 import * as Style from './styles'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../../store'
+import { sort } from '../../store/reducers/contacts'
 
 const ListContactsControls = () => {
   const navigate = useNavigate()
-  function handleClickMore() {
-    return
-  }
+  const { items } = useSelector((state: RootState) => state.contact)
+  const dispatch = useDispatch()
+
   const goToForm = () => {
     navigate('/new-contact')
   }
@@ -19,9 +22,15 @@ const ListContactsControls = () => {
         <Button.Label label="ADICIONAR" />
       </Button.Primary>
 
-      <Button.Primary type="button" padding=".8rem" onclick={handleClickMore}>
-        <Button.Icon icon={sortIcon} />
-      </Button.Primary>
+      {items.length > 0 && (
+        <Button.Primary
+          type="button"
+          padding=".8rem"
+          onclick={() => dispatch(sort())}
+        >
+          <Button.Icon icon={sortIcon} />
+        </Button.Primary>
+      )}
     </Style.ListControls>
   )
 }
