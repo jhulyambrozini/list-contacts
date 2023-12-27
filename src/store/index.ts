@@ -28,7 +28,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-function configStore(preloadedState?: PreloadedState<RootState>) {
+export function configStore(preloadedState?: PreloadedState<RootState>) {
   return configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
