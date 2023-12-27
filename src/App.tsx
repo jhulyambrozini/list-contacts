@@ -3,19 +3,20 @@ import { BrowserRouter } from 'react-router-dom'
 
 import GlobalStyle from './styles'
 import RoutesProvider from './routes'
-import { configStore } from './store'
+import { store, persistor } from './store'
 import Footer from './components/Footer/Footer'
-
-const store = configStore()
+import { PersistGate } from 'redux-persist/integration/react'
 
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <GlobalStyle />
-        <RoutesProvider />
-        <Footer />
-      </BrowserRouter>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <GlobalStyle />
+          <RoutesProvider />
+          <Footer />
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   )
 }

@@ -1,16 +1,33 @@
-import { PreloadedState, combineReducers, configureStore } from "@reduxjs/toolkit"
-import contactReducer from "./reducers/contacts"
+import {
+  PreloadedState,
+  combineReducers,
+  configureStore
+} from '@reduxjs/toolkit'
+import storage from 'redux-persist/lib/storage'
+import { persistReducer } from 'redux-persist'
+import { persistStore } from 'redux-persist'
+
+import contactReducer from './reducers/contacts'
 
 const rootReducer = combineReducers({
   contact: contactReducer
 })
 
-export function configStore(preloadedState?: PreloadedState<RootState>) {
+const persistConfig = {
+  key: 'root',
+  storage
+}
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+function configStore(preloadedState?: PreloadedState<RootState>) {
   return configureStore({
-    reducer: rootReducer,
+    reducer: persistedReducer,
     preloadedState
   })
 }
 
-export type RootState = ReturnType<typeof rootReducer>
-export type AppStore = ReturnType<typeof configStore> // esse é pra tipar o useSelect
+export const store = configStore()
+export let persistor = persistStore(store)
+export type RootState = ReturnType<typeof rootReducer> // esse é pra tipar o useSelect
+export type AppStore = ReturnType<typeof configStore>
