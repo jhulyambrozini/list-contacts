@@ -2,8 +2,6 @@ import styled from 'styled-components'
 import bg from '../../assets/bg.png'
 
 export const ContactProfileContainer = styled.div`
-  position: reative;
-
   main {
     position: absolute;
   }

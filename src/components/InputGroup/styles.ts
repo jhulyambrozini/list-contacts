@@ -24,13 +24,10 @@ export const InputGroupContainer = styled.div`
     border-radius: 5px;
     padding: 1.4rem;
     margin-bottom: 4px;
+    box-shadow: 0 0 0 30px #fff inset;
 
     &:focus {
       outline: none;
-    }
-
-    &:-webkit-autofill {
-      -webkit-box-shadow: 0 0 0 30px $color-grey-10 inset;
     }
   }
 

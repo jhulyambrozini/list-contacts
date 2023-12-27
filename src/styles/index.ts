@@ -52,5 +52,11 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     align-items: center;
   }
+
+  @media screen and (max-width: 426px) {
+    .container {
+      min-height: calc(100vh + 180px);
+    }
+  }
 `
 export default GlobalStyle
