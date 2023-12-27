@@ -95,7 +95,7 @@ const Form = ({ id }: FormProps) => {
     } else {
       if (contactExist()) {
         alert(
-          `Este telefone: ${form.values.tel} e email: ${form.values.email} já estão na agenad`
+          `Este telefone: ${form.values.tel} ou email: ${form.values.email} já está na agenda`
         )
       } else {
         dispatch(register(values))
@@ -106,13 +106,10 @@ const Form = ({ id }: FormProps) => {
 
   const contactExist = () => {
     for (let contact of items) {
-      console.log(contact)
       const emailExists = contact.email === form.values.email
       const telExists = contact.tel === form.values.tel
 
-      if (emailExists && telExists) {
-        return true
-      }
+      if (emailExists || telExists) return true
     }
 
     return false
