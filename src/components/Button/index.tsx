@@ -10,6 +10,7 @@ export type ButtonProps = {
   padding: string
   onclick?: MouseEventHandler<HTMLButtonElement>
   type: 'button' | 'submit'
+  title: string
 }
 
 export const Button = {

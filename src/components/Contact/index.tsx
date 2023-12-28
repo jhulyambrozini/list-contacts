@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom'
 
 const Contact = ({ firstName, lastName, tel, email, id, image }: TContact) => {
   const navigate = useNavigate()
-
   return (
     <Style.ContactContainer>
       <Style.Image>
@@ -22,6 +21,7 @@ const Contact = ({ firstName, lastName, tel, email, id, image }: TContact) => {
       <Button.Circle
         type="button"
         padding="1.6rem"
+        title="Editar contato"
         onclick={() => navigate(`/contact/${id}`)}
       >
         <ButtonIcon icon={editIcon} />

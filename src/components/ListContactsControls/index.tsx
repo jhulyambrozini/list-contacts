@@ -17,7 +17,12 @@ const ListContactsControls = () => {
   }
   return (
     <Style.ListControls>
-      <Button.Primary type="button" padding="1rem 2rem" onclick={goToForm}>
+      <Button.Primary
+        type="button"
+        padding="1rem 2rem"
+        onclick={goToForm}
+        title="Adicionar contato"
+      >
         <Button.Icon icon={moreIcon} />
         <Button.Label label="ADICIONAR" />
       </Button.Primary>
@@ -27,6 +32,7 @@ const ListContactsControls = () => {
           type="button"
           padding=".8rem"
           onclick={() => dispatch(sort())}
+          title="ordem alfabetica"
         >
           <Button.Icon icon={sortIcon} />
         </Button.Primary>

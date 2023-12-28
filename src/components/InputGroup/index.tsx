@@ -6,10 +6,10 @@ type InputGroupProps = {
   type: string
   label: string
   value?: string
-  onChange: ChangeEventHandler<HTMLInputElement>
-  onBlur: FocusEventHandler<HTMLInputElement>
-  erroMessage: string | false | undefined
-  isSuccess: boolean
+  onChange?: ChangeEventHandler<HTMLInputElement>
+  onBlur?: FocusEventHandler<HTMLInputElement>
+  erroMessage?: string | false | undefined
+  isSuccess?: boolean
 }
 
 const InputGroup = ({

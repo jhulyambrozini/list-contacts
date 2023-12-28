@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<InputGroup /> > deve renderizar corretamente sem erro ou sucesso 1`] = `
+<div
+  class="sc-bcPKhP hLFPdp"
+>
+  <label
+    for="name"
+  >
+    NOME
+  </label>
+  <input
+    class=""
+    id="name"
+    type="text"
+    value=""
+  />
+  <span />
+</div>
+`;

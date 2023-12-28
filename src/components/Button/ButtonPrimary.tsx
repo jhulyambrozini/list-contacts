@@ -6,12 +6,14 @@ const ButtonPrimary = ({
   padding,
   onclick,
   type,
+  title
 }: ButtonProps) => {
   return (
     <ButtonPrimaryContainer
       padding={padding}
       onClick={onclick}
       type={type}
+      title={title}
     >
       {children}
     </ButtonPrimaryContainer>
