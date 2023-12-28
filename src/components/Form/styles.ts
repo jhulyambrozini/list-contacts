@@ -72,7 +72,7 @@ export const InputAddPhotoContainer = styled.div`
     opacity: 0;
     width: 100%;
     height: 100%;
-    z-index: 9999;
+    z-index: 1;
     cursor: pointer;
   }
 

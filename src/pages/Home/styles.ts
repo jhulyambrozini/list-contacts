@@ -3,6 +3,10 @@ import styled from 'styled-components'
 export const HomeContainer = styled.div`
   padding: 0 2.4rem;
 
+  main {
+    min-height: 100vh;
+  }
+
   @media screen and (max-width: 769px) {
     main {
       width: 100%;

@@ -16,9 +16,11 @@ import {
 } from 'redux-persist'
 
 import contactReducer from './reducers/contacts'
+import popUpReducer from './reducers/popup'
 
 const rootReducer = combineReducers({
-  contact: contactReducer
+  contact: contactReducer,
+  popUp: popUpReducer
 })
 
 const persistConfig = {

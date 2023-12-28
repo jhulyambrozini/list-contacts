@@ -1,3 +1,4 @@
+import Footer from '../../components/Footer/Footer'
 import HeaderHome from '../../components/HeaderHome'
 import ListContacts from '../../components/ListContacts'
 import ListContactsControls from '../../components/ListContactsControls'
@@ -12,6 +13,7 @@ const Home = () => {
         <ListContactsControls />
         <ListContacts />
       </main>
+      <Footer />
     </HomeContainer>
   )
 }

@@ -1,9 +1,23 @@
 import styled from 'styled-components'
 import bg from '../../assets/bg.png'
 
+export const Overlay = styled.div`
+  width: 100%;
+  height: 120vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 99;
+
+  @media screen and (max-width: 426px) {
+    height: 142vh;
+  }
+`
+
 export const ContactProfileContainer = styled.div`
   main {
-    position: absolute;
+    min-height: 100vh;
   }
   @media screen and (max-width: 768px) {
     main {
@@ -18,24 +32,22 @@ export const Background = styled.div`
   height: 308px;
   background-position: center;
   max-width: 769px;
-  position: relative;
+  position: absolute;
+
+  display: flex;
+  justify-content: end;
+  padding-top: 2.5rem;
+  padding-right: 3rem;
 
   a {
-    position: absolute;
-    top: 2.5rem;
-    right: 3rem;
     width: 48px;
     height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
   }
 
   @media screen and (max-width: 426px) {
-    a {
-      top: 2.4rem;
-      right: 2.4rem;
-    }
+    padding-right: 2.4rem;
   }
 `
