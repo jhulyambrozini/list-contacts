@@ -30,5 +30,6 @@ export const LineDeco = styled.img`
 
   @media screen and (max-width: 426px) {
     top: 10px;
+    width: 100vw;
   }
 `

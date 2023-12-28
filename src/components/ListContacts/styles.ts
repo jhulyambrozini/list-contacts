@@ -10,6 +10,7 @@ export const ListContactsContainer = styled.ul`
   margin-bottom: 4.8rem;
 
   padding-right: 1.5rem;
+  overflow-x: hidden;
   overflow-y: scroll;
   scrollbar-width: 6px;
   scrollbar-color: rgba(63, 67, 80, 0.24);

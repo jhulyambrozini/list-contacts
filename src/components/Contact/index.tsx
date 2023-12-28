@@ -7,14 +7,17 @@ import { useNavigate } from 'react-router-dom'
 
 const Contact = ({ firstName, lastName, tel, email, id, image }: TContact) => {
   const navigate = useNavigate()
+
+  const fullName = `${firstName} ${lastName}`
+
   return (
     <Style.ContactContainer>
       <Style.Image>
         <div className="line-deco"></div>
-        <img src={image} alt={firstName + ' ' + lastName} />
+        <img src={image} alt={fullName} />
       </Style.Image>
       <Style.Infos>
-        <h2>{firstName + ' ' + lastName}</h2>
+        <h2>{fullName}</h2>
         <span>{tel}</span>
         <span>{email}</span>
       </Style.Infos>

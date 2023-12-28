@@ -72,6 +72,7 @@ export const Infos = styled.div`
 
     span {
       font-size: 1.4rem;
+      max-width: 10px;
     }
   }
 `
