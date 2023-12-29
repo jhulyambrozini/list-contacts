@@ -1,0 +1,43 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Contact /> > should render correctly 1`] = `
+<div
+  class="sc-bcPKhP iXEsBG"
+>
+  <div
+    class="sc-grXZZQ eLpZIc"
+  >
+    <div
+      class="line-deco"
+    />
+    <img
+      alt="Kamilly Silva"
+      src="/img.png"
+    />
+  </div>
+  <div
+    class="sc-dkjKgF fHhZcq"
+  >
+    <h2>
+      Kamilly Silva
+    </h2>
+    <span>
+      11 99999-9999
+    </span>
+    <span>
+      exemple@gmail.com
+    </span>
+  </div>
+  <button
+    class="sc-hLclGa sc-gKHVLF exppaI izXMqy"
+    padding="1.6rem"
+    title="Editar contato"
+    type="button"
+  >
+    <img
+      alt=""
+      src="/src/assets/edit-icon.svg"
+    />
+  </button>
+</div>
+`;

@@ -1,0 +1,117 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Form /> > deve renderizar apenas o botão de salvar na pagina de newContact 1`] = `
+<form
+  class="sc-jSwlEQ dMLtkY"
+  data-testid="form"
+>
+  <div
+    class="sc-ftLKQv bZVtCu"
+  >
+    <div
+      class="sc-jrkPcm gWlcpf"
+    >
+      <input
+        accept="image/png, image/jpeg"
+        title="Adicionar foto"
+        type="file"
+      />
+      <img
+        alt="Icone de uma câmera"
+        src="/src/assets/addPhoto-icon.svg"
+      />
+    </div>
+    <span
+      class="sc-kDnyCx tFteZ"
+    >
+      Insira um nome
+    </span>
+  </div>
+  <div
+    class="sc-gKHVLF gYEasd"
+  >
+    <div>
+      <div
+        class="sc-bcPKhP hLFPdp"
+      >
+        <label
+          for="firstName"
+        >
+          Nome
+        </label>
+        <input
+          class=""
+          id="firstName"
+          type="text"
+          value=""
+        />
+        <span />
+      </div>
+      <div
+        class="sc-bcPKhP hLFPdp"
+      >
+        <label
+          for="lastName"
+        >
+          Sobrenome
+        </label>
+        <input
+          class=""
+          id="lastName"
+          type="text"
+          value=""
+        />
+        <span />
+      </div>
+    </div>
+    <div>
+      <div
+        class="sc-bcPKhP hLFPdp"
+      >
+        <label
+          for="tel"
+        >
+          Telefone
+        </label>
+        <input
+          class=""
+          id="tel"
+          type="tel"
+          value=""
+        />
+        <span />
+      </div>
+      <div
+        class="sc-bcPKhP hLFPdp"
+      >
+        <label
+          for="email"
+        >
+          Email
+        </label>
+        <input
+          class=""
+          id="email"
+          type="email"
+          value=""
+        />
+        <span />
+      </div>
+    </div>
+  </div>
+  <div
+    class="sc-iBAaJG jcRLEz"
+  >
+    <button
+      class="sc-grXZZQ sc-hLclGa djQrDb hVEQyo"
+      padding="1.2rem 2.4rem"
+      title="Salvar contato"
+      type="submit"
+    >
+      <span>
+        SALVAR
+      </span>
+    </button>
+  </div>
+</form>
+`;

@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<PopupConfirm /> > deve renderizar corretamente quando ispopupopn for true 1`] = `
+<div
+  aria-description="Pop up para confirmação da exclusão do contato"
+  aria-label="Excluir contato"
+  class="sc-eDnVMP mcwsR"
+  role="dialog"
+>
+  <p>
+    Deseja excluir?
+  </p>
+  <div>
+    <button
+      class="sc-bcPKhP sc-dkjKgF sVHel jtVglq"
+      padding="1.2rem 2.4rem"
+      title="Não excluir contato"
+      type="button"
+    >
+      <span>
+        NÃO
+      </span>
+    </button>
+    <button
+      class="sc-bcPKhP sc-dkjKgF sVHel jtVglq"
+      padding="1.2rem 2.4rem"
+      title="Excluir contato"
+      type="button"
+    >
+      <span>
+        SIM
+      </span>
+    </button>
+  </div>
+</div>
+`;

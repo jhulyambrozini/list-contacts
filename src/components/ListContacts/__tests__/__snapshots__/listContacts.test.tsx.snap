@@ -1,0 +1,98 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<ListContacts /> > deve renderizar o iem na lista quando tiver um 1`] = `
+<ul
+  class="sc-iBAaJG fUOjuf"
+>
+  <li>
+    <div
+      class="sc-bcPKhP iXEsBG"
+    >
+      <div
+        class="sc-grXZZQ eLpZIc"
+      >
+        <div
+          class="line-deco"
+        />
+        <img
+          alt="Kamilly Silva"
+          src="/img.png"
+        />
+      </div>
+      <div
+        class="sc-dkjKgF fHhZcq"
+      >
+        <h2>
+          Kamilly Silva
+        </h2>
+        <span>
+          11 99999-9999
+        </span>
+        <span>
+          exemple@gmail.com
+        </span>
+      </div>
+      <button
+        class="sc-hLclGa sc-gKHVLF exppaI izXMqy"
+        padding="1.6rem"
+        title="Editar contato"
+        type="button"
+      >
+        <img
+          alt=""
+          src="/src/assets/edit-icon.svg"
+        />
+      </button>
+    </div>
+  </li>
+  <li>
+    <div
+      class="sc-bcPKhP iXEsBG"
+    >
+      <div
+        class="sc-grXZZQ eLpZIc"
+      >
+        <div
+          class="line-deco"
+        />
+        <img
+          alt="Alis Silva"
+          src="/img.png"
+        />
+      </div>
+      <div
+        class="sc-dkjKgF fHhZcq"
+      >
+        <h2>
+          Alis Silva
+        </h2>
+        <span>
+          11 99999-8888
+        </span>
+        <span>
+          exemple@gmail.co
+        </span>
+      </div>
+      <button
+        class="sc-hLclGa sc-gKHVLF exppaI izXMqy"
+        padding="1.6rem"
+        title="Editar contato"
+        type="button"
+      >
+        <img
+          alt=""
+          src="/src/assets/edit-icon.svg"
+        />
+      </button>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`<ListContacts /> > deve renderizar um paragrafo se a lista estiver vazia 1`] = `
+<p
+  class="sc-ftLKQv dxDskM"
+>
+  Sua agenda está vazia, adicione novos contatos!
+</p>
+`;

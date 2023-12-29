@@ -15,7 +15,7 @@ import { useFormik } from 'formik'
 import { generateRandomImage, validateImageFormat } from '../../utils/image'
 import { v4 as uuidv4 } from 'uuid'
 import { openPopup } from '../../store/reducers/popup'
-import PopupConfirm from '../PopupConfrm'
+import PopupConfirm from '../PopupComfirm'
 
 type FormProps = {
   id?: string
@@ -143,96 +143,95 @@ const Form = ({ id }: FormProps) => {
   }
 
   return (
-    <>
-      <Style.FormContainer onSubmit={form.handleSubmit}>
-        <Style.PhotoContainer>
-          <Style.InputAddPhotoContainer>
-            <input
-              type="file"
-              onChange={handleImageChange}
-              accept="image/png, image/jpeg"
-              multiple={false}
-            />
-            {image ? (
-              <Style.Photo src={image} alt="Imagem de perfil" />
-            ) : (
-              <img src={addPhotoIcon} alt="Icone de uma câmera" />
-            )}
-          </Style.InputAddPhotoContainer>
-          <Style.FullName>{getFullName()}</Style.FullName>
-        </Style.PhotoContainer>
-
-        <Style.FormInputsControls>
-          <div>
-            <InputGroup
-              id="firstName"
-              label="Nome"
-              type="text"
-              onBlur={form.handleBlur}
-              onChange={form.handleChange}
-              value={form.values.firstName}
-              erroMessage={getMessageError('firstName', form.errors.firstName)}
-              isSuccess={getSuccess('firstName')}
-            />
-            <InputGroup
-              id="lastName"
-              label="Sobrenome"
-              type="text"
-              onBlur={form.handleBlur}
-              onChange={form.handleChange}
-              value={form.values.lastName}
-              erroMessage={getMessageError('lastName', form.errors.lastName)}
-              isSuccess={getSuccess('lastName')}
-            />
-          </div>
-
-          <div>
-            <InputGroup
-              id="tel"
-              label="Telefone"
-              type="tel"
-              onBlur={form.handleBlur}
-              onChange={form.handleChange}
-              value={form.values.tel}
-              erroMessage={getMessageError('tel', form.errors.tel)}
-              isSuccess={getSuccess('tel')}
-            />
-            <InputGroup
-              id="email"
-              label="Email"
-              type="email"
-              onBlur={form.handleBlur}
-              onChange={form.handleChange}
-              value={form.values.email}
-              erroMessage={getMessageError('email', form.errors.email)}
-              isSuccess={getSuccess('email')}
-            />
-          </div>
-        </Style.FormInputsControls>
-
-        <Style.FormButtonsControls>
-          {id && (
-            <Button.Circle
-              type="button"
-              padding="1.6rem"
-              onclick={() => dispatch(openPopup())}
-              title="Excluir contato"
-            >
-              <ButtonIcon icon={trashIcom} />
-            </Button.Circle>
+    <Style.FormContainer onSubmit={form.handleSubmit} data-testid="form">
+      <Style.PhotoContainer>
+        <Style.InputAddPhotoContainer>
+          <input
+            type="file"
+            onChange={handleImageChange}
+            accept="image/png, image/jpeg"
+            multiple={false}
+            title="Adicionar foto"
+          />
+          {image ? (
+            <Style.Photo src={image} alt="Imagem de perfil" />
+          ) : (
+            <img src={addPhotoIcon} alt="Icone de uma câmera" />
           )}
+        </Style.InputAddPhotoContainer>
+        <Style.FullName>{getFullName()}</Style.FullName>
+      </Style.PhotoContainer>
 
-          <Button.Secondary
-            padding="1.2rem 2.4rem"
-            type="submit"
-            title="Salvar contato"
+      <Style.FormInputsControls>
+        <div>
+          <InputGroup
+            id="firstName"
+            label="Nome"
+            type="text"
+            onBlur={form.handleBlur}
+            onChange={form.handleChange}
+            value={form.values.firstName}
+            erroMessage={getMessageError('firstName', form.errors.firstName)}
+            isSuccess={getSuccess('firstName')}
+          />
+          <InputGroup
+            id="lastName"
+            label="Sobrenome"
+            type="text"
+            onBlur={form.handleBlur}
+            onChange={form.handleChange}
+            value={form.values.lastName}
+            erroMessage={getMessageError('lastName', form.errors.lastName)}
+            isSuccess={getSuccess('lastName')}
+          />
+        </div>
+
+        <div>
+          <InputGroup
+            id="tel"
+            label="Telefone"
+            type="tel"
+            onBlur={form.handleBlur}
+            onChange={form.handleChange}
+            value={form.values.tel}
+            erroMessage={getMessageError('tel', form.errors.tel)}
+            isSuccess={getSuccess('tel')}
+          />
+          <InputGroup
+            id="email"
+            label="Email"
+            type="email"
+            onBlur={form.handleBlur}
+            onChange={form.handleChange}
+            value={form.values.email}
+            erroMessage={getMessageError('email', form.errors.email)}
+            isSuccess={getSuccess('email')}
+          />
+        </div>
+      </Style.FormInputsControls>
+
+      <Style.FormButtonsControls>
+        {id && (
+          <Button.Circle
+            type="button"
+            padding="1.6rem"
+            onclick={() => dispatch(openPopup())}
+            title="Excluir contato"
           >
-            <Button.Label label="SALVAR" />
-          </Button.Secondary>
-        </Style.FormButtonsControls>
-        {id && <PopupConfirm id={id} />}
-      </Style.FormContainer>
-    </>
+            <ButtonIcon icon={trashIcom} />
+          </Button.Circle>
+        )}
+
+        <Button.Secondary
+          padding="1.2rem 2.4rem"
+          type="submit"
+          title="Salvar contato"
+        >
+          <Button.Label label="SALVAR" />
+        </Button.Secondary>
+      </Style.FormButtonsControls>
+      {id && <PopupConfirm id={id} />}
+    </Style.FormContainer>
   )
 }
 

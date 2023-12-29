@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import ListContactsControls from '..'
 import { fireEvent, screen } from '@testing-library/react'
 import { renderWithProvider } from '../../../utils/tests-redux'
@@ -6,10 +6,10 @@ import '@testing-library/jest-dom'
 import { vi } from 'vitest'
 
 const renderComponent = () => {
-  renderWithProvider(
-    <BrowserRouter>
+  const { container } = renderWithProvider(
+    <MemoryRouter>
       <ListContactsControls />
-    </BrowserRouter>,
+    </MemoryRouter>,
     {
       preloadedState: {
         contact: {
@@ -17,32 +17,38 @@ const renderComponent = () => {
             {
               email: 'exemple@gmail.com',
               id: '1',
-              image: '',
+              image: '/img.png',
               firstName: 'Kamilly',
               lastName: 'Silva',
               tel: '11 99999-9999'
+            },
+            {
+              email: 'exemple@gmail.co',
+              id: '2',
+              image: '/img.png',
+              firstName: 'Alis',
+              lastName: 'Silva',
+              tel: '11 99999-8888'
             }
           ]
         }
       }
     }
   )
+
+  return { container }
 }
 
 describe('<ListContactsControls />', () => {
-  // deve renderizar botão de orderna conatato somente quando items for maior que 0
-
-  // deve chamar uma função quando clicar em ordenar
-
-  // deve chamar uma função quando clicar em adicionar
   it('deve renderizar botão de orderna conatato somente quando items for maior que 0', () => {
-    renderComponent()
+    const { container } = renderComponent()
 
     const sortButton = screen.getByRole('button', {
       name: /ordem alfabetica/i
     })
 
     expect(sortButton).toBeInTheDocument()
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('deve chamar uma função quando clicar em ordenar', () => {

@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { vi } from 'vitest'
 import Contact from '..'
 import { TContact } from '../../../types/Contact'
-import { BrowserRouter, MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import { userEvent } from '@testing-library/user-event'
 
 const propsContact: TContact = {
@@ -27,7 +27,7 @@ vi.mock('react-router-dom', async () => {
 
 describe('<Contact />', () => {
   it('should render correctly', () => {
-    render(
+    const { container } = render(
       <MemoryRouter>
         <Contact {...propsContact} />
       </MemoryRouter>
@@ -41,12 +41,13 @@ describe('<Contact />', () => {
     expect(tel).toBeInTheDocument()
     expect(email).toBeInTheDocument()
     expect(image).toBeInTheDocument()
+    expect(container.firstChild).toMatchSnapshot()
   })
   it('should call navigate with the right url clicking in edit button', async () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Contact {...propsContact} />
-      </BrowserRouter>
+      </MemoryRouter>
     )
 
     const buttonEdit = screen.getByRole('button', { name: /Editar contato/i })
