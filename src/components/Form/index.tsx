@@ -13,8 +13,11 @@ import * as Style from './styles'
 import trashIcom from '../../assets/trash-icon.svg'
 import addPhotoIcon from '../../assets/addPhoto-icon.svg'
 
+import { ValuesForm } from '../../types/Form'
 import { TContact, TContactWithoutId } from '../../types/Contact'
+
 import { generateRandomImage, validateImageFormat } from '../../utils/image'
+import { getMessageError, getSuccess } from '../../utils/validate-form'
 
 import { edit, register } from '../../store/reducers/contacts'
 import { RootState } from '../../store'
@@ -35,7 +38,7 @@ const Form = ({ id }: FormProps) => {
     contactInfos?.image || ''
   )
 
-  const form = useFormik({
+  const form = useFormik<ValuesForm>({
     initialValues: {
       firstName: contactInfos?.firstName || '',
       lastName: contactInfos?.lastName || '',
@@ -139,22 +142,6 @@ const Form = ({ id }: FormProps) => {
     return 'Insira um nome'
   }
 
-  const getFieldStatus = (field: string) => {
-    const isTouched = field in form.touched
-    const isInvalid = field in form.errors
-    return { isTouched, isInvalid }
-  }
-
-  const getMessageError = (field: string, message?: string) => {
-    const { isTouched, isInvalid } = getFieldStatus(field)
-    return isTouched && isInvalid ? message : false
-  }
-
-  const getSuccess = (field: string) => {
-    const { isTouched, isInvalid } = getFieldStatus(field)
-    return isTouched && !isInvalid
-  }
-
   return (
     <Style.FormContainer onSubmit={form.handleSubmit} data-testid="form">
       <Style.PhotoContainer>
@@ -184,8 +171,12 @@ const Form = ({ id }: FormProps) => {
             onBlur={form.handleBlur}
             onChange={form.handleChange}
             value={form.values.firstName}
-            erroMessage={getMessageError('firstName', form.errors.firstName)}
-            isSuccess={getSuccess('firstName')}
+            erroMessage={getMessageError(
+              'firstName',
+              form,
+              form.errors.firstName
+            )}
+            isSuccess={getSuccess('firstName', form)}
           />
           <InputGroup
             id="lastName"
@@ -194,8 +185,12 @@ const Form = ({ id }: FormProps) => {
             onBlur={form.handleBlur}
             onChange={form.handleChange}
             value={form.values.lastName}
-            erroMessage={getMessageError('lastName', form.errors.lastName)}
-            isSuccess={getSuccess('lastName')}
+            erroMessage={getMessageError(
+              'lastName',
+              form,
+              form.errors.lastName
+            )}
+            isSuccess={getSuccess('lastName', form)}
           />
         </div>
 
@@ -207,8 +202,8 @@ const Form = ({ id }: FormProps) => {
             onBlur={form.handleBlur}
             onChange={form.handleChange}
             value={form.values.tel}
-            erroMessage={getMessageError('tel', form.errors.tel)}
-            isSuccess={getSuccess('tel')}
+            erroMessage={getMessageError('tel', form, form.errors.tel)}
+            isSuccess={getSuccess('tel', form)}
           />
           <InputGroup
             id="email"
@@ -217,8 +212,8 @@ const Form = ({ id }: FormProps) => {
             onBlur={form.handleBlur}
             onChange={form.handleChange}
             value={form.values.email}
-            erroMessage={getMessageError('email', form.errors.email)}
-            isSuccess={getSuccess('email')}
+            erroMessage={getMessageError('email', form, form.errors.email)}
+            isSuccess={getSuccess('email', form)}
           />
         </div>
       </Style.FormInputsControls>
