@@ -1,7 +1,9 @@
 import { Meta } from '@storybook/react'
-import Form, { FormProps } from '.'
-import mockStore from '../../mocks/redux-store'
 import { Provider } from 'react-redux'
+
+import Form, { FormProps } from '.'
+
+import mockStore from '../../mocks/redux-store'
 
 const meta = {
   title: 'components/Form',

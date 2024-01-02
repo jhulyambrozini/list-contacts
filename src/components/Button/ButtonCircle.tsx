@@ -7,17 +7,15 @@ const ButtonCircle = ({
   onclick,
   type,
   title
-}: ButtonProps) => {
-  return (
-    <ButtonCircleContainer
-      padding={padding}
-      onClick={onclick}
-      type={type}
-      title={title}
-    >
-      {children}
-    </ButtonCircleContainer>
-  )
-}
+}: ButtonProps) => (
+  <ButtonCircleContainer
+    padding={padding}
+    onClick={onclick}
+    type={type}
+    title={title}
+  >
+    {children}
+  </ButtonCircleContainer>
+)
 
 export default ButtonCircle

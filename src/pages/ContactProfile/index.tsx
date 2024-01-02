@@ -1,10 +1,12 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
 import Form from '../../components/Form'
+import Footer from '../../components/Footer/Footer'
+
 import * as Style from './styles'
 import backIcon from '../../assets/back-icon.svg'
-import { Link } from 'react-router-dom'
-import Footer from '../../components/Footer/Footer'
-import { useDispatch, useSelector } from 'react-redux'
+
 import { RootState } from '../../store'
 import { closePopup } from '../../store/reducers/popup'
 
@@ -24,9 +26,11 @@ const ContactProfile = () => {
         <main>{id ? <Form id={id} /> : <Form />}</main>
         <Footer />
       </Style.ContactProfileContainer>
+
       {isPopupOpen && (
         <Style.Overlay
           role="overlay-container"
+          aria-description="Background escuro"
           onClick={() => dispatch(closePopup())}
         />
       )}

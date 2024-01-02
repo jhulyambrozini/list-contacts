@@ -1,7 +1,9 @@
 import { Meta } from '@storybook/react'
-import mockStore from '../../mocks/redux-store'
 import { Provider } from 'react-redux'
+
 import ListContactsControls from '.'
+
+import mockStore from '../../mocks/redux-store'
 
 const meta = {
   title: 'components/ListContactsControls',

@@ -1,9 +1,11 @@
-import { TContact } from '../../types/Contact'
+import { useNavigate } from 'react-router-dom'
+
+import { Button } from '../Button'
+
 import editIcon from '../../assets/edit-icon.svg'
 import * as Style from './styles'
-import { Button } from '../Button'
-import ButtonIcon from '../Button/ButtonIcon'
-import { useNavigate } from 'react-router-dom'
+
+import { TContact } from '../../types/Contact'
 
 const Contact = ({ firstName, lastName, tel, email, id, image }: TContact) => {
   const navigate = useNavigate()
@@ -27,7 +29,7 @@ const Contact = ({ firstName, lastName, tel, email, id, image }: TContact) => {
         title="Editar contato"
         onclick={() => navigate(`/contact/${id}`)}
       >
-        <ButtonIcon alt="Icone de lápis" icon={editIcon} />
+        <Button.Icon alt="Icone de lápis" icon={editIcon} />
       </Button.Circle>
     </Style.ContactContainer>
   )

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import editIcon from '../../../assets/edit-icon.svg'
 
 import { Button } from '..'
+import editIcon from '../../../assets/edit-icon.svg'
 
 const meta = {
   title: 'components/Button/Secondary',
@@ -30,6 +30,6 @@ export const WithIcon: Story = {
     padding: '1rem 2rem',
     title: 'Click me',
     type: 'button',
-    children: <Button.Icon icon={editIcon} />
+    children: <Button.Icon alt="icon" icon={editIcon} />
   }
 }

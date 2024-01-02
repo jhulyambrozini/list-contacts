@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 
-export const ListControls = styled.div`
+export const ListContactsControlsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

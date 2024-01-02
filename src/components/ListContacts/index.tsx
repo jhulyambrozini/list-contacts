@@ -1,15 +1,19 @@
 import { useSelector } from 'react-redux'
+
 import Contact from '../Contact'
-import { ListContactsContainer, ParagraphEmpty } from './styles'
-import { RootState } from '../../store'
+
+import * as Style from './styles'
+
 import { TContact } from '../../types/Contact'
+import { RootState } from '../../store'
 
 const ListContacts = () => {
   const { items } = useSelector((state: RootState) => state.contact)
+
   return (
     <>
       {items.length > 0 ? (
-        <ListContactsContainer>
+        <Style.ListContactsContainer>
           {items.map((contact: TContact) => (
             <li key={contact.id}>
               <Contact
@@ -22,11 +26,11 @@ const ListContacts = () => {
               />
             </li>
           ))}
-        </ListContactsContainer>
+        </Style.ListContactsContainer>
       ) : (
-        <ParagraphEmpty>
+        <Style.ParagraphEmpty>
           Sua agenda está vazia, adicione novos contatos!
-        </ParagraphEmpty>
+        </Style.ParagraphEmpty>
       )}
     </>
   )

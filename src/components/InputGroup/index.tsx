@@ -21,21 +21,19 @@ const InputGroup = ({
   onBlur,
   erroMessage,
   isSuccess
-}: InputGroupProps) => {
-  return (
-    <Style.InputGroupContainer>
-      <label htmlFor={id}>{label}</label>
-      <input
-        type={type}
-        id={id}
-        value={value}
-        onChange={onChange}
-        onBlur={onBlur}
-        className={(isSuccess ? 'success' : '') || (erroMessage ? 'error' : '')}
-      />
-      <span>{erroMessage}</span>
-    </Style.InputGroupContainer>
-  )
-}
+}: InputGroupProps) => (
+  <Style.InputGroupContainer>
+    <label htmlFor={id}>{label}</label>
+    <input
+      type={type}
+      id={id}
+      value={value}
+      onChange={onChange}
+      onBlur={onBlur}
+      className={(isSuccess ? 'success' : '') || (erroMessage ? 'error' : '')}
+    />
+    <span>{erroMessage}</span>
+  </Style.InputGroupContainer>
+)
 
 export default InputGroup

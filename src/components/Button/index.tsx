@@ -8,8 +8,8 @@ import ButtonSecondary from './ButtonSecondary'
 export type ButtonProps = {
   children: ReactNode
   padding: string
-  onclick?: MouseEventHandler<HTMLButtonElement>
   type: 'button' | 'submit'
+  onclick?: MouseEventHandler<HTMLButtonElement>
   title?: string
 }
 

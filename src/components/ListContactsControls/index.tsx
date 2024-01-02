@@ -1,9 +1,13 @@
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
+import { Button } from '../../components/Button'
+
 import moreIcon from '../../assets/more-icon.svg'
 import sortIcon from '../../assets/sort-icon.svg'
-import { Button } from '../../components/Button'
-import { useNavigate } from 'react-router-dom'
-import * as Style from './styles'
-import { useDispatch, useSelector } from 'react-redux'
+
+import { ListContactsControlsContainer } from './styles'
+
 import { RootState } from '../../store'
 import { sort } from '../../store/reducers/contacts'
 
@@ -13,7 +17,7 @@ const ListContactsControls = () => {
   const navigate = useNavigate()
 
   return (
-    <Style.ListControls>
+    <ListContactsControlsContainer>
       <Button.Primary
         type="button"
         padding="1rem 2rem"
@@ -34,7 +38,7 @@ const ListContactsControls = () => {
           <Button.Icon alt="Icon de A-Z" icon={sortIcon} />
         </Button.Primary>
       )}
-    </Style.ListControls>
+    </ListContactsControlsContainer>
   )
 }
 

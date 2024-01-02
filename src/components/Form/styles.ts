@@ -82,7 +82,7 @@ export const FullName = styled.span`
   text-align: center;
 
   font-family: ${typography.secondary};
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 500;
 
   @media screen and (max-width: 426px) {

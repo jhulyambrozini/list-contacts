@@ -7,17 +7,15 @@ const ButtonPrimary = ({
   onclick,
   type,
   title
-}: ButtonProps) => {
-  return (
-    <ButtonPrimaryContainer
-      padding={padding}
-      onClick={onclick}
-      type={type}
-      title={title}
-    >
-      {children}
-    </ButtonPrimaryContainer>
-  )
-}
+}: ButtonProps) => (
+  <ButtonPrimaryContainer
+    padding={padding}
+    onClick={onclick}
+    type={type}
+    title={title}
+  >
+    {children}
+  </ButtonPrimaryContainer>
+)
 
 export default ButtonPrimary

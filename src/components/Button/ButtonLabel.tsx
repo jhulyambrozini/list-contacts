@@ -2,8 +2,6 @@ type ButtonLabelProps = {
   label: string
 }
 
-const ButtonLabel = ({ label }: ButtonLabelProps) => {
-  return <span>{label}</span>
-}
+const ButtonLabel = ({ label }: ButtonLabelProps) => <span>{label}</span>
 
 export default ButtonLabel

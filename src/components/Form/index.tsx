@@ -1,21 +1,24 @@
 import { ChangeEvent, useState } from 'react'
+import { useFormik } from 'formik'
+import { v4 as uuidv4 } from 'uuid'
+import * as Yup from 'yup'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
 import InputGroup from '../InputGroup'
 import { Button } from '../Button'
-import * as Style from './styles'
-import ButtonIcon from '../Button/ButtonIcon'
-import trashIcom from '../../assets/trash-icon.svg'
-import { useDispatch, useSelector } from 'react-redux'
-import { edit, register } from '../../store/reducers/contacts'
-import { useNavigate } from 'react-router-dom'
-import { RootState } from '../../store'
-import { TContact, TContactWithoutId } from '../../types/Contact'
-import addPhotoIcon from '../../assets/addPhoto-icon.svg'
-import * as Yup from 'yup'
-import { useFormik } from 'formik'
-import { generateRandomImage, validateImageFormat } from '../../utils/image'
-import { v4 as uuidv4 } from 'uuid'
-import { openPopup } from '../../store/reducers/popup'
 import PopupConfirm from '../PopupComfirm'
+
+import * as Style from './styles'
+import trashIcom from '../../assets/trash-icon.svg'
+import addPhotoIcon from '../../assets/addPhoto-icon.svg'
+
+import { TContact, TContactWithoutId } from '../../types/Contact'
+import { generateRandomImage, validateImageFormat } from '../../utils/image'
+
+import { edit, register } from '../../store/reducers/contacts'
+import { RootState } from '../../store'
+import { openPopup } from '../../store/reducers/popup'
 
 export type FormProps = {
   id?: string
@@ -228,7 +231,7 @@ const Form = ({ id }: FormProps) => {
             onclick={() => dispatch(openPopup())}
             title="Excluir contato"
           >
-            <ButtonIcon icon={trashIcom} />
+            <Button.Icon alt="Icone de uma lixeira" icon={trashIcom} />
           </Button.Circle>
         )}
 
@@ -240,6 +243,7 @@ const Form = ({ id }: FormProps) => {
           <Button.Label label="SALVAR" />
         </Button.Secondary>
       </Style.FormButtonsControls>
+
       {id && <PopupConfirm id={id} />}
     </Style.FormContainer>
   )
