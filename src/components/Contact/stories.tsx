@@ -11,7 +11,7 @@ const meta = {
   },
   args: {
     email: 'exemple@gmail.com',
-    id: 'ndejfj',
+    id: '1',
     image: 'https://placehold.co/90x90/030020/png',
     firstName: 'Kamilly',
     lastName: 'Silva',

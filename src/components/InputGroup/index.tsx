@@ -1,7 +1,7 @@
 import { ChangeEventHandler, FocusEventHandler } from 'react'
 import * as Style from './styles'
 
-type InputGroupProps = {
+export type InputGroupProps = {
   id: string
   type: string
   label: string

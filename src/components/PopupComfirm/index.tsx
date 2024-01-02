@@ -6,7 +6,11 @@ import { remove } from '../../store/reducers/contacts'
 import { useNavigate } from 'react-router-dom'
 import * as Style from './styles'
 
-const PopupConfirm = ({ id }: { id: string }) => {
+export type PopupConfirmProps = {
+  id: string
+}
+
+const PopupConfirm = ({ id }: PopupConfirmProps) => {
   const { isPopupOpen } = useSelector((state: RootState) => state.popUp)
   const dispatch = useDispatch()
   const navigate = useNavigate()

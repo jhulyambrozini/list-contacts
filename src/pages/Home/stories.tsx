@@ -1,19 +1,19 @@
 import { Meta } from '@storybook/react'
-import ListContacts from '.'
+import Home from '.'
 import mockStore from '../../mocks/redux-store'
 import { Provider } from 'react-redux'
 
 const meta = {
-  title: 'components/ListContacts',
-  component: ListContacts,
+  title: 'pages/Home',
+  component: Home,
   parameters: {
     layout: 'centered'
   }
-} satisfies Meta<typeof ListContacts>
+} satisfies Meta<typeof Home>
 
 export default meta
 
-export const Empty = () => {
+export const EmptyList = () => {
   const store = mockStore({
     contact: {
       items: []
@@ -21,7 +21,7 @@ export const Empty = () => {
   })
   return (
     <Provider store={store}>
-      <ListContacts />
+      <Home />
     </Provider>
   )
 }
@@ -60,7 +60,7 @@ export const WithListItems = () => {
 
   return (
     <Provider store={store}>
-      <ListContacts />
+      <Home />
     </Provider>
   )
 }

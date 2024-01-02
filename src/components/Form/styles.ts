@@ -4,14 +4,6 @@ import { colors, typography } from '../../styles'
 export const FormContainer = styled.form`
   padding: 6rem 4rem 0 4rem;
   width: 100%;
-
-  .error {
-    border: 1px solid ${colors.error};
-  }
-
-  .success {
-    border: 1px solid ${colors.success};
-  }
 `
 
 export const FormInputsControls = styled.div`

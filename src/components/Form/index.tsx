@@ -17,7 +17,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { openPopup } from '../../store/reducers/popup'
 import PopupConfirm from '../PopupComfirm'
 
-type FormProps = {
+export type FormProps = {
   id?: string
 }
 

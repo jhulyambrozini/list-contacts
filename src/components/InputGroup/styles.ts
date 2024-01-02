@@ -7,6 +7,14 @@ export const InputGroupContainer = styled.div`
   margin-bottom: 4rem;
   height: 67px;
 
+  .error {
+    border: 1px solid ${colors.error};
+  }
+
+  .success {
+    border: 1px solid ${colors.success};
+  }
+
   label {
     color: ${colors.grey01};
     font-size: 1.8rem;
