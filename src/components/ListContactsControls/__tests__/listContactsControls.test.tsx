@@ -1,12 +1,13 @@
 import { MemoryRouter } from 'react-router-dom'
 import ListContactsControls from '..'
-import { fireEvent, screen } from '@testing-library/react'
+import { fireEvent, screen, waitFor } from '@testing-library/react'
 import { renderWithProvider } from '../../../utils/tests-redux'
 import '@testing-library/jest-dom'
 import { vi } from 'vitest'
+import userEvent from '@testing-library/user-event'
 
 const renderComponent = () => {
-  const { container } = renderWithProvider(
+  const { container, store } = renderWithProvider(
     <MemoryRouter>
       <ListContactsControls />
     </MemoryRouter>,
@@ -23,12 +24,12 @@ const renderComponent = () => {
               tel: '11 99999-9999'
             },
             {
-              email: 'exemple@gmail.co',
+              email: 'exemple@gmail.com.br',
               id: '2',
               image: '/img.png',
-              firstName: 'Alis',
+              firstName: 'alis',
               lastName: 'Silva',
-              tel: '11 99999-8888'
+              tel: '11 99999-0000'
             }
           ]
         }
@@ -36,10 +37,22 @@ const renderComponent = () => {
     }
   )
 
-  return { container }
+  return { container, store }
 }
 
+const mockUseNavigate = vi.fn()
+
+vi.mock('react-router-dom', async () => {
+  const actual = (await vi.importActual('react-router-dom')) as any
+  return {
+    ...actual,
+    useNavigate: () => mockUseNavigate
+  }
+})
+
 describe('<ListContactsControls />', () => {
+  afterEach(() => vi.clearAllMocks())
+
   it('deve renderizar botão de orderna conatato somente quando items for maior que 0', () => {
     const { container } = renderComponent()
 
@@ -51,33 +64,31 @@ describe('<ListContactsControls />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it('deve chamar uma função quando clicar em ordenar', () => {
-    const handleClick = vi.fn()
-    renderComponent()
+  it('deve chamar uma função quando clicar em ordenar', async () => {
+    const { store } = renderComponent()
 
     const sortButton = screen.getByRole('button', {
       name: /ordem alfabetica/i
     })
 
-    sortButton.onclick = handleClick
+    expect(store.getState().contact.items[0].firstName).toBe('Kamilly')
 
-    fireEvent.click(sortButton)
+    await waitFor(() => fireEvent.click(sortButton))
 
-    expect(handleClick).toHaveBeenCalled()
+    await waitFor(() => {
+      expect(store.getState().contact.items[0].firstName).toBe('alis')
+    })
   })
 
-  it('deve chamar uma função quando clicar em adicionar', () => {
-    const handleClick = vi.fn()
+  it('deve chamar usenavigate com a url vcerta quando cliacr em adicionar', async () => {
     renderComponent()
 
     const addContactButton = screen.getByRole('button', {
-      name: /ADICIONAR/i
+      name: /adicionar/i
     })
 
-    addContactButton.onclick = handleClick
+    await waitFor(() => userEvent.click(addContactButton))
 
-    fireEvent.click(addContactButton)
-
-    expect(handleClick).toHaveBeenCalled()
+    expect(mockUseNavigate.mock.calls[0][0]).toBe('/new-contact')
   })
 })

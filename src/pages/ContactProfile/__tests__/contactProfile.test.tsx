@@ -1,8 +1,9 @@
-import { fireEvent, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { renderWithProvider } from '../../../utils/tests-redux'
 import { MemoryRouter } from 'react-router-dom'
 import ContactProfile from '../ContactProfile'
+import userEvent from '@testing-library/user-event'
 
 describe('<ContactProfile />', () => {
   it('deve ir para home quando clicar no link', () => {
@@ -14,9 +15,9 @@ describe('<ContactProfile />', () => {
 
     const linkToHome = screen.getByRole('link', { name: /Seta de voltar/i })
 
-    fireEvent.click(linkToHome)
+    userEvent.click(linkToHome)
 
-    // expect(screen.getByText('AGENDA DE CONTATOS')).toBeInTheDocument()
+    expect(global.window.location.pathname).toEqual('/')
   })
   it('deve renderizar o overlay quando isopenpopup for true', () => {
     renderWithProvider(

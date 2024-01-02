@@ -6,3 +6,5 @@ export type TContact = {
   email: string
   image: string
 }
+
+export type TContactWithoutId = Omit<TContact, 'id'>

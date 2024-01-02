@@ -21,6 +21,19 @@ describe('<InputGroup />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
+  it(' deve receber corretamente o evento de change', () => {
+    render(<InputGroup {...propsInputGroup} />)
+
+    const input = screen.getByRole('textbox', { name: /NOME/i })
+
+    fireEvent.change(input, {
+      target: {
+        value: 'adicioanndo um texto'
+      }
+    })
+    expect(input).toHaveValue('adicioanndo um texto')
+  })
+
   it('deve renderizar com erro quando receber uma mensagem de erro', () => {
     const { container } = render(
       <InputGroup {...propsInputGroup} erroMessage="campo obrigatório" />
@@ -40,18 +53,5 @@ describe('<InputGroup />', () => {
     const input = screen.getByRole('textbox', { name: /NOME/i })
     expect(input.className).toBe('success')
     expect(container.firstChild).toMatchSnapshot()
-  })
-
-  it(' deve receber corretamente o evento de change', () => {
-    render(<InputGroup {...propsInputGroup} />)
-
-    const input = screen.getByRole('textbox', { name: /NOME/i })
-
-    fireEvent.change(input, {
-      target: {
-        value: 'adicioanndo um texto'
-      }
-    })
-    expect(input).toHaveValue('adicioanndo um texto')
   })
 })

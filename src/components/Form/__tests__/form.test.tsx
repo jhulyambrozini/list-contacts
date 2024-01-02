@@ -1,14 +1,12 @@
-import { fireEvent, screen } from '@testing-library/react'
+import { fireEvent, screen, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
+import 'vitest-canvas-mock'
 import { renderWithProvider } from '../../../utils/tests-redux'
 import { MemoryRouter } from 'react-router-dom'
 import Form from '..'
 import userEvent from '@testing-library/user-event'
-import { vi } from 'vitest'
 
 describe('<Form />', () => {
-  // deve exluir contato quando aperta no botão de excluir
-
   it('deve renderizar apenas o botão de salvar na pagina de newContact', () => {
     const { container } = renderWithProvider(
       <MemoryRouter>
@@ -20,10 +18,8 @@ describe('<Form />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it('deve preencher o formulario corretamente e registrar', async () => {
-    const handleSubmit = vi.fn()
-
-    renderWithProvider(
+  it('deve preencher o formulario corretamente e registrar novo contato', async () => {
+    const { store } = renderWithProvider(
       <MemoryRouter>
         <Form />
       </MemoryRouter>
@@ -54,12 +50,19 @@ describe('<Form />', () => {
     fireEvent.change(inputPhone, { target: { value: '0000-0000' } })
     userEvent.upload(inputImage, file)
 
-    const register = screen.getByTestId('form')
-    register.onsubmit = handleSubmit
+    const registerForm = screen.getByTestId('form')
 
-    fireEvent.submit(register)
+    await waitFor(() => {
+      fireEvent.submit(registerForm)
+    })
 
-    expect(handleSubmit).toHaveBeenCalled()
+    await waitFor(() => {
+      expect(window.location.pathname).toBe('/')
+    })
+
+    await waitFor(() => {
+      expect(store.getState().contact.items.length).toEqual(1)
+    })
   })
 
   it('deve renderizar o formulario de edição quando receber um id props ', () => {
@@ -88,9 +91,8 @@ describe('<Form />', () => {
     const fullName = screen.getByText('Kamilly Silva')
     expect(fullName).toBeInTheDocument()
   })
-  it('deve salvar a edição quando clicar no botão salvar', () => {
-    const handleSubmitEdit = vi.fn()
-    renderWithProvider(
+  it('deve atualizar a edição do contato quando clicar no botão salvar', async () => {
+    const { store } = renderWithProvider(
       <MemoryRouter>
         <Form id="1" />
       </MemoryRouter>,
@@ -118,10 +120,54 @@ describe('<Form />', () => {
 
     const saveButton = screen.getByRole('button', { name: /salvar/i })
 
-    saveButton.onclick = handleSubmitEdit
+    await waitFor(() => {
+      fireEvent.click(saveButton)
+    })
 
-    fireEvent.click(saveButton)
+    await waitFor(() => {
+      expect(store.getState().contact.items[0].firstName).toBe('kamilla')
+    })
+  })
 
-    expect(handleSubmitEdit).toHaveBeenCalled()
+  it('deve excluir contato quando clicar em sim no pop up de confirmação', async () => {
+    const { store } = renderWithProvider(
+      <MemoryRouter>
+        <Form id="1" />
+      </MemoryRouter>,
+      {
+        preloadedState: {
+          contact: {
+            items: [
+              {
+                email: 'exemple@gmail.com',
+                id: '1',
+                image: '/img.png',
+                firstName: 'Kamilly',
+                lastName: 'Silva',
+                tel: '11 99999-9999'
+              }
+            ]
+          }
+        }
+      }
+    )
+
+    const excludeButton = screen.getByRole('button', { name: /excluir/i })
+
+    await waitFor(() => {
+      userEvent.click(excludeButton)
+    })
+
+    await waitFor(() => {
+      userEvent.click(
+        screen.getByRole('button', {
+          name: /sim/i
+        })
+      )
+    })
+
+    await waitFor(() => {
+      expect(store.getState().contact.items.length).toEqual(0)
+    })
   })
 })

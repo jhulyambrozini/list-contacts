@@ -8,6 +8,9 @@ export default mergeConfig(
     test: {
       globals: true,
       environment: 'jsdom',
+      deps: {
+        inline: ['vitest-canvas-mock']
+      },
       css: false,
       coverage: {
         provider: 'v8',

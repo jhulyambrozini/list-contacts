@@ -39,7 +39,7 @@ const PopupConfirm = ({ id }: { id: string }) => {
 
               <Button.Secondary
                 padding="1.2rem 2.4rem"
-                title="Excluir contato"
+                title="Confirmar excluir contato"
                 type="button"
                 onclick={removeContact}
               >

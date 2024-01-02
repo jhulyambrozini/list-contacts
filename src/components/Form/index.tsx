@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { edit, register } from '../../store/reducers/contacts'
 import { useNavigate } from 'react-router-dom'
 import { RootState } from '../../store'
-import { TContact } from '../../types/Contact'
+import { TContact, TContactWithoutId } from '../../types/Contact'
 import addPhotoIcon from '../../assets/addPhoto-icon.svg'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
@@ -47,20 +47,20 @@ const Form = ({ id }: FormProps) => {
         .email('Digite um email válido')
         .required('O campo é obrigatório')
     }),
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       if (image) {
         const data = {
           ...values,
           image
         }
-        registerData(data)
+        await registerData(data)
       } else {
         const randomImage = generateRandomImage(form.values.firstName, 100, 100)
         const data = {
           ...values,
           image: randomImage
         }
-        registerData(data)
+        await registerData(data)
       }
     }
   })
@@ -82,31 +82,41 @@ const Form = ({ id }: FormProps) => {
     }
   }
 
-  const registerData = (values: Omit<TContact, 'id'>) => {
+  const updateContact = async (values: TContactWithoutId) => {
     if (id) {
-      const dataWithId = {
+      const data = {
         ...values,
         id
       }
-      dispatch(edit(dataWithId))
+      await dispatch(edit(data))
       navigate('/')
-    } else {
-      if (contactExist()) {
-        alert(
-          `Este telefone: ${form.values.tel} ou email: ${form.values.email} já está na agenda`
-        )
-      } else {
-        const data = {
-          ...values,
-          id: uuidv4()
-        }
-        dispatch(register(data))
-        navigate('/')
-      }
     }
   }
 
-  const contactExist = () => {
+  const registerNewContact = async (values: TContactWithoutId) => {
+    if (isContactExist()) {
+      alert(
+        `Este telefone: ${form.values.tel} ou email: ${form.values.email} já está na agenda`
+      )
+    } else {
+      const data = {
+        ...values,
+        id: uuidv4()
+      }
+      await dispatch(register(data))
+      navigate('/')
+    }
+  }
+
+  const registerData = async (values: TContactWithoutId) => {
+    if (id) {
+      await updateContact(values)
+    } else {
+      await registerNewContact(values)
+    }
+  }
+
+  const isContactExist = () => {
     for (let contact of items) {
       const emailExists = contact.email === form.values.email
       const telExists = contact.tel === form.values.tel

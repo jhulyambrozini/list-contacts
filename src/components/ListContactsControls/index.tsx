@@ -8,19 +8,16 @@ import { RootState } from '../../store'
 import { sort } from '../../store/reducers/contacts'
 
 const ListContactsControls = () => {
-  const navigate = useNavigate()
   const { items } = useSelector((state: RootState) => state.contact)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  const goToForm = () => {
-    navigate('/new-contact')
-  }
   return (
     <Style.ListControls>
       <Button.Primary
         type="button"
         padding="1rem 2rem"
-        onclick={goToForm}
+        onclick={() => navigate('/new-contact')}
         title="Adicionar contato"
       >
         <Button.Icon icon={moreIcon} />

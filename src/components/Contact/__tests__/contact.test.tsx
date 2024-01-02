@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { vi } from 'vitest'
 import Contact from '..'
 import { TContact } from '../../../types/Contact'
@@ -26,6 +26,8 @@ vi.mock('react-router-dom', async () => {
 })
 
 describe('<Contact />', () => {
+  afterEach(() => vi.clearAllMocks())
+
   it('should render correctly', () => {
     const { container } = render(
       <MemoryRouter>
@@ -52,7 +54,7 @@ describe('<Contact />', () => {
 
     const buttonEdit = screen.getByRole('button', { name: /Editar contato/i })
 
-    await userEvent.click(buttonEdit)
+    await waitFor(() => userEvent.click(buttonEdit))
 
     expect(mockUseNavigate.mock.calls[0][0]).toBe(`/contact/${propsContact.id}`)
   })
