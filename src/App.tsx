@@ -1,10 +1,10 @@
+import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
 import GlobalStyle from './styles'
 import RoutesProvider from './routes'
 import { store, persistor } from './store'
-import { PersistGate } from 'redux-persist/integration/react'
 
 function App() {
   return (

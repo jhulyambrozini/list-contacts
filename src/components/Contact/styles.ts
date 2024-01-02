@@ -5,6 +5,7 @@ export const ContactContainer = styled.div`
   display: flex;
   align-items: center;
   max-width: 700px;
+  width: 100%;
 
   padding-bottom: 2.4rem;
   border-bottom: 2px solid #f1f1f1;
@@ -44,6 +45,7 @@ export const Image = styled.div`
 
 export const Infos = styled.div`
   display: flex;
+  overflow-x: hidden;
   justify-content: space-between;
   align-items: center;
   gap: 32px;
@@ -59,6 +61,10 @@ export const Infos = styled.div`
   span {
     color: ${colors.grey02};
     font-size: 1.6rem;
+    width: 200px;
+    text-align: start;
+    display: flex;
+    justify-content: start;
   }
 
   @media screen and (max-width: 600px) {
@@ -72,7 +78,6 @@ export const Infos = styled.div`
 
     span {
       font-size: 1.4rem;
-      max-width: 10px;
     }
   }
 `

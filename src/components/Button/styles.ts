@@ -11,6 +11,11 @@ export const Button = styled.button<ButtonProps>`
   box-shadow: 0px 2px 4px 0px rgba(100, 100, 100, 0.1);
   color: ${colors.primary01};
   padding: ${(props) => props.padding};
+
+  img {
+    width: 19px;
+    height: 100%;
+  }
 `
 export const ButtonPrimaryContainer = styled(Button)`
   background-color: transparent;

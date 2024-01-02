@@ -27,9 +27,11 @@ export const HeaderContainer = styled.header`
 export const LineDeco = styled.img`
   position: absolute;
   top: 29px;
+  width: 100%;
 
   @media screen and (max-width: 426px) {
     top: 10px;
+    min-width: 100%;
     width: 100vw;
   }
 `

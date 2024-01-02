@@ -6,8 +6,9 @@ export const ListContactsContainer = styled.ul`
   flex-direction: column;
   gap: 24px;
   max-height: 100vh;
-  width: 100%;
   margin-bottom: 4.8rem;
+
+  list-style: none;
 
   padding-right: 1.5rem;
   overflow-x: hidden;
@@ -22,11 +23,6 @@ export const ListContactsContainer = styled.ul`
   &::-webkit-scrollbar-thumb {
     background-color: rgba(63, 67, 80, 0.24);
     border-radius: 3px;
-  }
-
-  li {
-    width: 100%;
-    list-style: none;
   }
 `
 export const ParagraphEmpty = styled.p`
