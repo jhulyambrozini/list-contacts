@@ -10,14 +10,14 @@ exports[`<ListContacts /> > should render a paragraph if the list is empty 1`] =
 
 exports[`<ListContacts /> > should render the item in the list when it has one in the store 1`] = `
 <ul
-  class="sc-iBAaJG fUOjuf"
+  class="sc-iBAaJG hLsAyM"
 >
   <li>
     <div
-      class="sc-bcPKhP iXEsBG"
+      class="sc-eDnVMP dCSdhh"
     >
       <div
-        class="sc-grXZZQ eLpZIc"
+        class="sc-jSwlEQ bOxcWW"
       >
         <div
           class="line-deco"
@@ -28,7 +28,8 @@ exports[`<ListContacts /> > should render the item in the list when it has one i
         />
       </div>
       <div
-        class="sc-dkjKgF fHhZcq"
+        aria-label="contact info"
+        class="sc-gKHVLF bSyYha"
       >
         <h2>
           Kamilly Silva
@@ -41,13 +42,13 @@ exports[`<ListContacts /> > should render the item in the list when it has one i
         </span>
       </div>
       <button
-        class="sc-hLclGa sc-gKHVLF exppaI izXMqy"
+        class="sc-bcPKhP sc-hLclGa kjNJwx bSMmYf"
         padding="1.6rem"
         title="Editar contato"
         type="button"
       >
         <img
-          alt="Icone de lápis"
+          alt="Icone de editar"
           src="/src/assets/edit-icon.svg"
         />
       </button>
@@ -55,10 +56,10 @@ exports[`<ListContacts /> > should render the item in the list when it has one i
   </li>
   <li>
     <div
-      class="sc-bcPKhP iXEsBG"
+      class="sc-eDnVMP dCSdhh"
     >
       <div
-        class="sc-grXZZQ eLpZIc"
+        class="sc-jSwlEQ bOxcWW"
       >
         <div
           class="line-deco"
@@ -69,7 +70,8 @@ exports[`<ListContacts /> > should render the item in the list when it has one i
         />
       </div>
       <div
-        class="sc-dkjKgF fHhZcq"
+        aria-label="contact info"
+        class="sc-gKHVLF bSyYha"
       >
         <h2>
           Alis Silva
@@ -82,13 +84,13 @@ exports[`<ListContacts /> > should render the item in the list when it has one i
         </span>
       </div>
       <button
-        class="sc-hLclGa sc-gKHVLF exppaI izXMqy"
+        class="sc-bcPKhP sc-hLclGa kjNJwx bSMmYf"
         padding="1.6rem"
         title="Editar contato"
         type="button"
       >
         <img
-          alt="Icone de lápis"
+          alt="Icone de editar"
           src="/src/assets/edit-icon.svg"
         />
       </button>

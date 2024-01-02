@@ -12,7 +12,7 @@ exports[`<PopupConfirm /> > should render correctly when isPopupOpen is true 1`]
   </p>
   <div>
     <button
-      class="sc-bcPKhP sc-dkjKgF sVHel jtVglq"
+      class="sc-bcPKhP sc-dkjKgF ezyiSz jtVglq"
       padding="1.2rem 2.4rem"
       title="Não excluir contato"
       type="button"
@@ -22,7 +22,7 @@ exports[`<PopupConfirm /> > should render correctly when isPopupOpen is true 1`]
       </span>
     </button>
     <button
-      class="sc-bcPKhP sc-dkjKgF sVHel jtVglq"
+      class="sc-bcPKhP sc-dkjKgF ezyiSz jtVglq"
       padding="1.2rem 2.4rem"
       title="Confirmar excluir contato"
       type="button"

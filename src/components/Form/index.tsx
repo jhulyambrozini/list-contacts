@@ -226,7 +226,7 @@ const Form = ({ id }: FormProps) => {
             onclick={() => dispatch(openPopup())}
             title="Excluir contato"
           >
-            <Button.Icon alt="Icone de uma lixeira" icon={trashIcom} />
+            <Button.Icon alt="Icone de lixeira (excluir)" icon={trashIcom} />
           </Button.Circle>
         )}
 

@@ -2,6 +2,7 @@
 
 exports[`<InputGroup /> > should render correctly without error or success 1`] = `
 <div
+  aria-label="Input group"
   class="sc-bcPKhP eBMfoZ"
 >
   <label
@@ -21,6 +22,7 @@ exports[`<InputGroup /> > should render correctly without error or success 1`] =
 
 exports[`<InputGroup /> > should render in success state when isSucess is true 1`] = `
 <div
+  aria-label="Input group"
   class="sc-bcPKhP eBMfoZ"
 >
   <label
@@ -40,6 +42,7 @@ exports[`<InputGroup /> > should render in success state when isSucess is true 1
 
 exports[`<InputGroup /> > should render with error when getting an error message 1`] = `
 <div
+  aria-label="Input group"
   class="sc-bcPKhP eBMfoZ"
 >
   <label

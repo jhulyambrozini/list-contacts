@@ -2,14 +2,15 @@
 
 exports[`<Form /> > should only render the save button on the newContact page 1`] = `
 <form
-  class="sc-jSwlEQ jNHpXM"
+  class="sc-gKHVLF cgYcjW"
   data-testid="form"
 >
   <div
-    class="sc-ftLKQv bZVtCu"
+    class="sc-pqitP inGyiQ"
   >
     <div
-      class="sc-jrkPcm gWlcpf"
+      aria-label="Input image"
+      class="sc-kDnyCx dvnzHB"
     >
       <input
         accept="image/png, image/jpeg"
@@ -22,16 +23,17 @@ exports[`<Form /> > should only render the save button on the newContact page 1`
       />
     </div>
     <span
-      class="sc-kDnyCx tFteZ"
+      class="sc-ipMvLY wVEqB"
     >
       Insira um nome
     </span>
   </div>
   <div
-    class="sc-gKHVLF gYEasd"
+    class="sc-iBAaJG guBMRz"
   >
     <div>
       <div
+        aria-label="Input group"
         class="sc-bcPKhP eBMfoZ"
       >
         <label
@@ -48,6 +50,7 @@ exports[`<Form /> > should only render the save button on the newContact page 1`
         <span />
       </div>
       <div
+        aria-label="Input group"
         class="sc-bcPKhP eBMfoZ"
       >
         <label
@@ -66,6 +69,7 @@ exports[`<Form /> > should only render the save button on the newContact page 1`
     </div>
     <div>
       <div
+        aria-label="Input group"
         class="sc-bcPKhP eBMfoZ"
       >
         <label
@@ -82,6 +86,7 @@ exports[`<Form /> > should only render the save button on the newContact page 1`
         <span />
       </div>
       <div
+        aria-label="Input group"
         class="sc-bcPKhP eBMfoZ"
       >
         <label
@@ -100,10 +105,10 @@ exports[`<Form /> > should only render the save button on the newContact page 1`
     </div>
   </div>
   <div
-    class="sc-iBAaJG jcRLEz"
+    class="sc-ftLKQv edMseL"
   >
     <button
-      class="sc-grXZZQ sc-hLclGa djQrDb hVEQyo"
+      class="sc-grXZZQ sc-hLclGa lcpiBB hVEQyo"
       padding="1.2rem 2.4rem"
       title="Salvar contato"
       type="submit"
@@ -118,14 +123,15 @@ exports[`<Form /> > should only render the save button on the newContact page 1`
 
 exports[`<Form /> > should render the edit form when receiving an id props 1`] = `
 <form
-  class="sc-jSwlEQ jNHpXM"
+  class="sc-gKHVLF cgYcjW"
   data-testid="form"
 >
   <div
-    class="sc-ftLKQv bZVtCu"
+    class="sc-pqitP inGyiQ"
   >
     <div
-      class="sc-jrkPcm gWlcpf"
+      aria-label="Input image"
+      class="sc-kDnyCx dvnzHB"
     >
       <input
         accept="image/png, image/jpeg"
@@ -134,21 +140,22 @@ exports[`<Form /> > should render the edit form when receiving an id props 1`] =
       />
       <img
         alt="Imagem de perfil"
-        class="sc-pqitP kSotkS"
+        class="sc-jrkPcm rBxP"
         src="/img.png"
       />
     </div>
     <span
-      class="sc-kDnyCx tFteZ"
+      class="sc-ipMvLY wVEqB"
     >
       Kamilly Silva
     </span>
   </div>
   <div
-    class="sc-gKHVLF gYEasd"
+    class="sc-iBAaJG guBMRz"
   >
     <div>
       <div
+        aria-label="Input group"
         class="sc-bcPKhP eBMfoZ"
       >
         <label
@@ -165,6 +172,7 @@ exports[`<Form /> > should render the edit form when receiving an id props 1`] =
         <span />
       </div>
       <div
+        aria-label="Input group"
         class="sc-bcPKhP eBMfoZ"
       >
         <label
@@ -183,6 +191,7 @@ exports[`<Form /> > should render the edit form when receiving an id props 1`] =
     </div>
     <div>
       <div
+        aria-label="Input group"
         class="sc-bcPKhP eBMfoZ"
       >
         <label
@@ -199,6 +208,7 @@ exports[`<Form /> > should render the edit form when receiving an id props 1`] =
         <span />
       </div>
       <div
+        aria-label="Input group"
         class="sc-bcPKhP eBMfoZ"
       >
         <label
@@ -217,20 +227,21 @@ exports[`<Form /> > should render the edit form when receiving an id props 1`] =
     </div>
   </div>
   <div
-    class="sc-iBAaJG jcRLEz"
+    class="sc-ftLKQv edMseL"
   >
     <button
-      class="sc-grXZZQ sc-eDnVMP fZIxWt dzJcPW"
+      class="sc-grXZZQ sc-eDnVMP gCOyb dzJcPW"
       padding="1.6rem"
       title="Excluir contato"
       type="button"
     >
       <img
+        alt="Icone de lixeira (excluir)"
         src="/src/assets/trash-icon.svg"
       />
     </button>
     <button
-      class="sc-grXZZQ sc-hLclGa djQrDb hVEQyo"
+      class="sc-grXZZQ sc-hLclGa lcpiBB hVEQyo"
       padding="1.2rem 2.4rem"
       title="Salvar contato"
       type="submit"

@@ -2,10 +2,10 @@
 
 exports[`<Contact /> > should render received props correctly 1`] = `
 <div
-  class="sc-bcPKhP iXEsBG"
+  class="sc-eDnVMP dCSdhh"
 >
   <div
-    class="sc-grXZZQ eLpZIc"
+    class="sc-jSwlEQ bOxcWW"
   >
     <div
       class="line-deco"
@@ -16,7 +16,8 @@ exports[`<Contact /> > should render received props correctly 1`] = `
     />
   </div>
   <div
-    class="sc-dkjKgF fHhZcq"
+    aria-label="contact info"
+    class="sc-gKHVLF bSyYha"
   >
     <h2>
       Kamilly Silva
@@ -29,13 +30,13 @@ exports[`<Contact /> > should render received props correctly 1`] = `
     </span>
   </div>
   <button
-    class="sc-hLclGa sc-gKHVLF exppaI izXMqy"
+    class="sc-bcPKhP sc-hLclGa kjNJwx bSMmYf"
     padding="1.6rem"
     title="Editar contato"
     type="button"
   >
     <img
-      alt="Icone de lápis"
+      alt="Icone de editar"
       src="/src/assets/edit-icon.svg"
     />
   </button>

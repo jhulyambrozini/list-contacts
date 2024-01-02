@@ -2,7 +2,7 @@
 
 exports[`<Button /> > should render Secondary button with icon correctly 1`] = `
 <button
-  class="sc-bcPKhP sc-dkjKgF hZGMMU jtVglq"
+  class="sc-bcPKhP sc-dkjKgF gxyhQS jtVglq"
   padding="2rem"
   title="Click me"
   type="button"
@@ -16,7 +16,7 @@ exports[`<Button /> > should render Secondary button with icon correctly 1`] = `
 
 exports[`<Button /> > should render circle button with icon correctly 1`] = `
 <button
-  class="sc-bcPKhP sc-hLclGa hZGMMU bSMmYf"
+  class="sc-bcPKhP sc-hLclGa gxyhQS bSMmYf"
   padding="2rem"
   title="Click me"
   type="button"
@@ -30,7 +30,7 @@ exports[`<Button /> > should render circle button with icon correctly 1`] = `
 
 exports[`<Button /> > should render circle button with label correctly 1`] = `
 <button
-  class="sc-bcPKhP sc-hLclGa hZGMMU bSMmYf"
+  class="sc-bcPKhP sc-hLclGa gxyhQS bSMmYf"
   padding="2rem"
   title="Click me"
   type="button"
@@ -43,7 +43,7 @@ exports[`<Button /> > should render circle button with label correctly 1`] = `
 
 exports[`<Button /> > should render primary button with label and icon correctly 1`] = `
 <button
-  class="sc-bcPKhP sc-grXZZQ hZGMMU eCXYuZ"
+  class="sc-bcPKhP sc-grXZZQ gxyhQS eCXYuZ"
   padding="2rem"
   title="Click me"
   type="button"
@@ -60,7 +60,7 @@ exports[`<Button /> > should render primary button with label and icon correctly
 
 exports[`<Button /> > should render primary buttton with label correctly 1`] = `
 <button
-  class="sc-bcPKhP sc-grXZZQ hZGMMU eCXYuZ"
+  class="sc-bcPKhP sc-grXZZQ gxyhQS eCXYuZ"
   padding="2rem"
   title="Click me"
   type="button"
@@ -73,7 +73,7 @@ exports[`<Button /> > should render primary buttton with label correctly 1`] = `
 
 exports[`<Button /> > should render secondary button with label correctly 1`] = `
 <button
-  class="sc-bcPKhP sc-dkjKgF hZGMMU jtVglq"
+  class="sc-bcPKhP sc-dkjKgF gxyhQS jtVglq"
   padding="2rem"
   title="Click me"
   type="button"

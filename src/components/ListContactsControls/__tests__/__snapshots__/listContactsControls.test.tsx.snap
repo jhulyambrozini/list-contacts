@@ -5,13 +5,13 @@ exports[`<ListContactsControls /> > should render contact order button only when
   class="sc-eDnVMP fXkfQf"
 >
   <button
-    class="sc-bcPKhP sc-grXZZQ fLLMTP eCXYuZ"
+    class="sc-bcPKhP sc-grXZZQ eiOZfB eCXYuZ"
     padding="1rem 2rem"
     title="Adicionar contato"
     type="button"
   >
     <img
-      alt="Sinal de mais"
+      alt="Icone de mais"
       src="/src/assets/more-icon.svg"
     />
     <span>
@@ -19,7 +19,7 @@ exports[`<ListContactsControls /> > should render contact order button only when
     </span>
   </button>
   <button
-    class="sc-bcPKhP sc-grXZZQ dXlDDo eCXYuZ"
+    class="sc-bcPKhP sc-grXZZQ eWKupu eCXYuZ"
     padding=".8rem"
     title="ordem alfabetica"
     type="button"
