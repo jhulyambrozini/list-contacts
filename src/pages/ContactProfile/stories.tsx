@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react'
-import ContactProfile from './ContactProfile'
+import ContactProfile from '.'
 import mockStore from '../../mocks/redux-store'
 import { Provider } from 'react-redux'
 

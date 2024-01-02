@@ -1,6 +1,25 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<InputGroup /> >  deve renderizar no estado sucesso quando isSucess for true 1`] = `
+exports[`<InputGroup /> > should render correctly without error or success 1`] = `
+<div
+  class="sc-bcPKhP eBMfoZ"
+>
+  <label
+    for="name"
+  >
+    NOME
+  </label>
+  <input
+    class=""
+    id="name"
+    type="text"
+    value=""
+  />
+  <span />
+</div>
+`;
+
+exports[`<InputGroup /> > should render in success state when isSucess is true 1`] = `
 <div
   class="sc-bcPKhP eBMfoZ"
 >
@@ -19,7 +38,7 @@ exports[`<InputGroup /> >  deve renderizar no estado sucesso quando isSucess for
 </div>
 `;
 
-exports[`<InputGroup /> > deve renderizar com erro quando receber uma mensagem de erro 1`] = `
+exports[`<InputGroup /> > should render with error when getting an error message 1`] = `
 <div
   class="sc-bcPKhP eBMfoZ"
 >
@@ -37,24 +56,5 @@ exports[`<InputGroup /> > deve renderizar com erro quando receber uma mensagem d
   <span>
     campo obrigatório
   </span>
-</div>
-`;
-
-exports[`<InputGroup /> > deve renderizar corretamente sem erro ou sucesso 1`] = `
-<div
-  class="sc-bcPKhP eBMfoZ"
->
-  <label
-    for="name"
-  >
-    NOME
-  </label>
-  <input
-    class=""
-    id="name"
-    type="text"
-    value=""
-  />
-  <span />
 </div>
 `;

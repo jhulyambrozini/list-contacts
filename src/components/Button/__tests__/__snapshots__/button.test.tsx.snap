@@ -1,0 +1,85 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Button /> > should render Secondary button with icon correctly 1`] = `
+<button
+  class="sc-bcPKhP sc-dkjKgF hZGMMU jtVglq"
+  padding="2rem"
+  title="Click me"
+  type="button"
+>
+  <img
+    alt="icon"
+    src="/img.png"
+  />
+</button>
+`;
+
+exports[`<Button /> > should render circle button with icon correctly 1`] = `
+<button
+  class="sc-bcPKhP sc-hLclGa hZGMMU bSMmYf"
+  padding="2rem"
+  title="Click me"
+  type="button"
+>
+  <img
+    alt="icon"
+    src="/img.png"
+  />
+</button>
+`;
+
+exports[`<Button /> > should render circle button with label correctly 1`] = `
+<button
+  class="sc-bcPKhP sc-hLclGa hZGMMU bSMmYf"
+  padding="2rem"
+  title="Click me"
+  type="button"
+>
+  <span>
+    Circle with label
+  </span>
+</button>
+`;
+
+exports[`<Button /> > should render primary button with label and icon correctly 1`] = `
+<button
+  class="sc-bcPKhP sc-grXZZQ hZGMMU eCXYuZ"
+  padding="2rem"
+  title="Click me"
+  type="button"
+>
+  <span>
+    Primary with label and icon
+  </span>
+  <img
+    alt="icon"
+    src="/img.png"
+  />
+</button>
+`;
+
+exports[`<Button /> > should render primary buttton with label correctly 1`] = `
+<button
+  class="sc-bcPKhP sc-grXZZQ hZGMMU eCXYuZ"
+  padding="2rem"
+  title="Click me"
+  type="button"
+>
+  <span>
+    Primary
+  </span>
+</button>
+`;
+
+exports[`<Button /> > should render secondary button with label correctly 1`] = `
+<button
+  class="sc-bcPKhP sc-dkjKgF hZGMMU jtVglq"
+  padding="2rem"
+  title="Click me"
+  type="button"
+>
+  <span>
+    Secondary with label
+  </span>
+</button>
+`;

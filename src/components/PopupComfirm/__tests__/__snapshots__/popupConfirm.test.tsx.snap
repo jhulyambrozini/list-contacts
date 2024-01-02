@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<PopupConfirm /> > deve renderizar corretamente quando ispopupopn for true 1`] = `
+exports[`<PopupConfirm /> > should render correctly when isPopupOpen is true 1`] = `
 <div
   aria-description="Pop up para confirmação da exclusão do contato"
   aria-label="Excluir contato"

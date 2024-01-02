@@ -1,12 +1,14 @@
-import { screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { renderWithProvider } from '../../../utils/tests-redux'
+
+import { screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import ContactProfile from '../ContactProfile'
 import userEvent from '@testing-library/user-event'
 
+import ContactProfile from '..'
+import { renderWithProvider } from '../../../utils/tests-redux'
+
 describe('<ContactProfile />', () => {
-  it('deve ir para home quando clicar no link', () => {
+  it('should go to home when you click on the link', () => {
     renderWithProvider(
       <MemoryRouter>
         <ContactProfile />
@@ -19,7 +21,7 @@ describe('<ContactProfile />', () => {
 
     expect(global.window.location.pathname).toEqual('/')
   })
-  it('deve renderizar o overlay quando isopenpopup for true', () => {
+  it('should render overlay when isPopupOpen is true', () => {
     renderWithProvider(
       <MemoryRouter>
         <ContactProfile />

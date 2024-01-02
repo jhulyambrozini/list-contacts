@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<ListContactsControls /> > deve renderizar botão de orderna conatato somente quando items for maior que 0 1`] = `
+exports[`<ListContactsControls /> > should render contact order button only when items is greater than 0 1`] = `
 <div
   class="sc-eDnVMP fXkfQf"
 >

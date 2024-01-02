@@ -1,13 +1,40 @@
-import { fireEvent, screen, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import 'vitest-canvas-mock'
-import { renderWithProvider } from '../../../utils/tests-redux'
-import { MemoryRouter } from 'react-router-dom'
-import Form from '..'
+
 import userEvent from '@testing-library/user-event'
+import { fireEvent, screen, waitFor } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
+
+import Form from '..'
+import { renderWithProvider } from '../../../utils/tests-redux'
+
+const renderComponentEdit = () => {
+  const { store, container } = renderWithProvider(
+    <MemoryRouter>
+      <Form id="1" />
+    </MemoryRouter>,
+    {
+      preloadedState: {
+        contact: {
+          items: [
+            {
+              email: 'exemple@gmail.com',
+              id: '1',
+              image: '/img.png',
+              firstName: 'Kamilly',
+              lastName: 'Silva',
+              tel: '11 99999-9999'
+            }
+          ]
+        }
+      }
+    }
+  )
+  return { store, container }
+}
 
 describe('<Form />', () => {
-  it('deve renderizar apenas o botão de salvar na pagina de newContact', () => {
+  it('should only render the save button on the newContact page', () => {
     const { container } = renderWithProvider(
       <MemoryRouter>
         <Form />
@@ -18,7 +45,7 @@ describe('<Form />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it('deve preencher o formulario corretamente e registrar novo contato', async () => {
+  it('should fill out the form correctly and register a new contact', async () => {
     const { store } = renderWithProvider(
       <MemoryRouter>
         <Form />
@@ -65,54 +92,18 @@ describe('<Form />', () => {
     })
   })
 
-  it('deve renderizar o formulario de edição quando receber um id props ', () => {
-    renderWithProvider(
-      <MemoryRouter>
-        <Form id="1" />
-      </MemoryRouter>,
-      {
-        preloadedState: {
-          contact: {
-            items: [
-              {
-                email: 'exemple@gmail.com',
-                id: '1',
-                image: '/img.png',
-                firstName: 'Kamilly',
-                lastName: 'Silva',
-                tel: '11 99999-9999'
-              }
-            ]
-          }
-        }
-      }
-    )
+  it('should render the edit form when receiving an id props', () => {
+    const { container } = renderComponentEdit()
 
     const fullName = screen.getByText('Kamilly Silva')
     expect(fullName).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
   })
-  it('deve atualizar a edição do contato quando clicar no botão salvar', async () => {
-    const { store } = renderWithProvider(
-      <MemoryRouter>
-        <Form id="1" />
-      </MemoryRouter>,
-      {
-        preloadedState: {
-          contact: {
-            items: [
-              {
-                email: 'exemple@gmail.com',
-                id: '1',
-                image: '/img.png',
-                firstName: 'Kamilly',
-                lastName: 'Silva',
-                tel: '11 99999-9999'
-              }
-            ]
-          }
-        }
-      }
-    )
+
+  it('should update the contact edit when you click the save button', async () => {
+    const { store } = renderComponentEdit()
+
     const inputFirstName = screen.getByRole('textbox', {
       name: 'Nome'
     })
@@ -129,33 +120,13 @@ describe('<Form />', () => {
     })
   })
 
-  it('deve excluir contato quando clicar em sim no pop up de confirmação', async () => {
-    const { store } = renderWithProvider(
-      <MemoryRouter>
-        <Form id="1" />
-      </MemoryRouter>,
-      {
-        preloadedState: {
-          contact: {
-            items: [
-              {
-                email: 'exemple@gmail.com',
-                id: '1',
-                image: '/img.png',
-                firstName: 'Kamilly',
-                lastName: 'Silva',
-                tel: '11 99999-9999'
-              }
-            ]
-          }
-        }
-      }
-    )
+  it('should delete contact when clicking yes on confirmation pop up', async () => {
+    const { store } = renderComponentEdit()
 
-    const excludeButton = screen.getByRole('button', { name: /excluir/i })
+    const deleteButton = screen.getByRole('button', { name: /excluir/i })
 
     await waitFor(() => {
-      userEvent.click(excludeButton)
+      userEvent.click(deleteButton)
     })
 
     await waitFor(() => {

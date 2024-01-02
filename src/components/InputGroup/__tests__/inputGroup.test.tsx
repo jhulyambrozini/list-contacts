@@ -1,6 +1,6 @@
-import InputGroup from '..'
 import '@testing-library/jest-dom'
 import { fireEvent, render, screen } from '@testing-library/react'
+import InputGroup from '..'
 
 const propsInputGroup = {
   id: 'name',
@@ -9,7 +9,7 @@ const propsInputGroup = {
 }
 
 describe('<InputGroup />', () => {
-  it('deve renderizar corretamente sem erro ou sucesso', () => {
+  it('should render correctly without error or success', () => {
     const { container } = render(<InputGroup {...propsInputGroup} />)
 
     const label = screen.getByText('NOME')
@@ -21,7 +21,7 @@ describe('<InputGroup />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it(' deve receber corretamente o evento de change', () => {
+  it('should correctly receive the change event', () => {
     render(<InputGroup {...propsInputGroup} />)
 
     const input = screen.getByRole('textbox', { name: /NOME/i })
@@ -34,7 +34,7 @@ describe('<InputGroup />', () => {
     expect(input).toHaveValue('adicioanndo um texto')
   })
 
-  it('deve renderizar com erro quando receber uma mensagem de erro', () => {
+  it('should render with error when getting an error message', () => {
     const { container } = render(
       <InputGroup {...propsInputGroup} erroMessage="campo obrigatório" />
     )
@@ -44,14 +44,16 @@ describe('<InputGroup />', () => {
 
     expect(input.className).toBe('error')
     expect(spanErro).toBeInTheDocument()
+
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it(' deve renderizar no estado sucesso quando isSucess for true', () => {
+  it('should render in success state when isSucess is true', () => {
     const { container } = render(<InputGroup {...propsInputGroup} isSuccess />)
 
     const input = screen.getByRole('textbox', { name: /NOME/i })
     expect(input.className).toBe('success')
+
     expect(container.firstChild).toMatchSnapshot()
   })
 })

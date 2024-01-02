@@ -1,8 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Form /> > deve renderizar apenas o botão de salvar na pagina de newContact 1`] = `
+exports[`<Form /> > should only render the save button on the newContact page 1`] = `
 <form
-  class="sc-jSwlEQ dMLtkY"
+  class="sc-jSwlEQ jNHpXM"
   data-testid="form"
 >
   <div
@@ -32,7 +32,7 @@ exports[`<Form /> > deve renderizar apenas o botão de salvar na pagina de newCo
   >
     <div>
       <div
-        class="sc-bcPKhP hLFPdp"
+        class="sc-bcPKhP eBMfoZ"
       >
         <label
           for="firstName"
@@ -48,7 +48,7 @@ exports[`<Form /> > deve renderizar apenas o botão de salvar na pagina de newCo
         <span />
       </div>
       <div
-        class="sc-bcPKhP hLFPdp"
+        class="sc-bcPKhP eBMfoZ"
       >
         <label
           for="lastName"
@@ -66,7 +66,7 @@ exports[`<Form /> > deve renderizar apenas o botão de salvar na pagina de newCo
     </div>
     <div>
       <div
-        class="sc-bcPKhP hLFPdp"
+        class="sc-bcPKhP eBMfoZ"
       >
         <label
           for="tel"
@@ -82,7 +82,7 @@ exports[`<Form /> > deve renderizar apenas o botão de salvar na pagina de newCo
         <span />
       </div>
       <div
-        class="sc-bcPKhP hLFPdp"
+        class="sc-bcPKhP eBMfoZ"
       >
         <label
           for="email"
@@ -102,6 +102,133 @@ exports[`<Form /> > deve renderizar apenas o botão de salvar na pagina de newCo
   <div
     class="sc-iBAaJG jcRLEz"
   >
+    <button
+      class="sc-grXZZQ sc-hLclGa djQrDb hVEQyo"
+      padding="1.2rem 2.4rem"
+      title="Salvar contato"
+      type="submit"
+    >
+      <span>
+        SALVAR
+      </span>
+    </button>
+  </div>
+</form>
+`;
+
+exports[`<Form /> > should render the edit form when receiving an id props 1`] = `
+<form
+  class="sc-jSwlEQ jNHpXM"
+  data-testid="form"
+>
+  <div
+    class="sc-ftLKQv bZVtCu"
+  >
+    <div
+      class="sc-jrkPcm gWlcpf"
+    >
+      <input
+        accept="image/png, image/jpeg"
+        title="Adicionar foto"
+        type="file"
+      />
+      <img
+        alt="Imagem de perfil"
+        class="sc-pqitP kSotkS"
+        src="/img.png"
+      />
+    </div>
+    <span
+      class="sc-kDnyCx tFteZ"
+    >
+      Kamilly Silva
+    </span>
+  </div>
+  <div
+    class="sc-gKHVLF gYEasd"
+  >
+    <div>
+      <div
+        class="sc-bcPKhP eBMfoZ"
+      >
+        <label
+          for="firstName"
+        >
+          Nome
+        </label>
+        <input
+          class=""
+          id="firstName"
+          type="text"
+          value="Kamilly"
+        />
+        <span />
+      </div>
+      <div
+        class="sc-bcPKhP eBMfoZ"
+      >
+        <label
+          for="lastName"
+        >
+          Sobrenome
+        </label>
+        <input
+          class=""
+          id="lastName"
+          type="text"
+          value="Silva"
+        />
+        <span />
+      </div>
+    </div>
+    <div>
+      <div
+        class="sc-bcPKhP eBMfoZ"
+      >
+        <label
+          for="tel"
+        >
+          Telefone
+        </label>
+        <input
+          class=""
+          id="tel"
+          type="tel"
+          value="11 99999-9999"
+        />
+        <span />
+      </div>
+      <div
+        class="sc-bcPKhP eBMfoZ"
+      >
+        <label
+          for="email"
+        >
+          Email
+        </label>
+        <input
+          class=""
+          id="email"
+          type="email"
+          value="exemple@gmail.com"
+        />
+        <span />
+      </div>
+    </div>
+  </div>
+  <div
+    class="sc-iBAaJG jcRLEz"
+  >
+    <button
+      class="sc-grXZZQ sc-eDnVMP fZIxWt dzJcPW"
+      padding="1.6rem"
+      title="Excluir contato"
+      type="button"
+    >
+      <img
+        src="/src/assets/trash-icon.svg"
+      />
+    </button>
     <button
       class="sc-grXZZQ sc-hLclGa djQrDb hVEQyo"
       padding="1.2rem 2.4rem"

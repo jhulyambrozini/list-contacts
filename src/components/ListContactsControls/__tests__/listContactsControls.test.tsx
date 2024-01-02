@@ -1,10 +1,13 @@
-import { MemoryRouter } from 'react-router-dom'
-import ListContactsControls from '..'
-import { fireEvent, screen, waitFor } from '@testing-library/react'
-import { renderWithProvider } from '../../../utils/tests-redux'
 import '@testing-library/jest-dom'
-import { vi } from 'vitest'
+
+import { MemoryRouter } from 'react-router-dom'
+import { fireEvent, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
+
+import ListContactsControls from '..'
+
+import { renderWithProvider } from '../../../utils/tests-redux'
 
 const renderComponent = () => {
   const { container, store } = renderWithProvider(
@@ -53,7 +56,7 @@ vi.mock('react-router-dom', async () => {
 describe('<ListContactsControls />', () => {
   afterEach(() => vi.clearAllMocks())
 
-  it('deve renderizar botão de orderna conatato somente quando items for maior que 0', () => {
+  it('should render contact order button only when items is greater than 0', () => {
     const { container } = renderComponent()
 
     const sortButton = screen.getByRole('button', {
@@ -64,7 +67,7 @@ describe('<ListContactsControls />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it('deve chamar uma função quando clicar em ordenar', async () => {
+  it('should sort the items in the list when you click on the sort button', async () => {
     const { store } = renderComponent()
 
     const sortButton = screen.getByRole('button', {
@@ -80,7 +83,7 @@ describe('<ListContactsControls />', () => {
     })
   })
 
-  it('deve chamar usenavigate com a url vcerta quando cliacr em adicionar', async () => {
+  it('should call usenavigate with the correct url when you click on add', async () => {
     renderComponent()
 
     const addContactButton = screen.getByRole('button', {

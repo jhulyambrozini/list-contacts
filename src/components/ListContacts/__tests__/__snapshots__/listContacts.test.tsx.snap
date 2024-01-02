@@ -1,6 +1,14 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<ListContacts /> > deve renderizar o iem na lista quando tiver um 1`] = `
+exports[`<ListContacts /> > should render a paragraph if the list is empty 1`] = `
+<p
+  class="sc-ftLKQv dxDskM"
+>
+  Sua agenda está vazia, adicione novos contatos!
+</p>
+`;
+
+exports[`<ListContacts /> > should render the item in the list when it has one in the store 1`] = `
 <ul
   class="sc-iBAaJG fUOjuf"
 >
@@ -39,7 +47,7 @@ exports[`<ListContacts /> > deve renderizar o iem na lista quando tiver um 1`] =
         type="button"
       >
         <img
-          alt=""
+          alt="Icone de lápis"
           src="/src/assets/edit-icon.svg"
         />
       </button>
@@ -80,19 +88,11 @@ exports[`<ListContacts /> > deve renderizar o iem na lista quando tiver um 1`] =
         type="button"
       >
         <img
-          alt=""
+          alt="Icone de lápis"
           src="/src/assets/edit-icon.svg"
         />
       </button>
     </div>
   </li>
 </ul>
-`;
-
-exports[`<ListContacts /> > deve renderizar um paragrafo se a lista estiver vazia 1`] = `
-<p
-  class="sc-ftLKQv dxDskM"
->
-  Sua agenda está vazia, adicione novos contatos!
-</p>
 `;

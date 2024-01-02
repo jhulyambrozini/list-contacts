@@ -1,11 +1,14 @@
 import '@testing-library/jest-dom'
+
 import { screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+
 import ListContacts from '..'
+
 import { renderWithProvider } from '../../../utils/tests-redux'
 
 describe('<ListContacts />', () => {
-  it('deve renderizar um paragrafo se a lista estiver vazia', () => {
+  it('should render a paragraph if the list is empty', () => {
     const { container } = renderWithProvider(
       <MemoryRouter>
         <ListContacts />
@@ -14,10 +17,11 @@ describe('<ListContacts />', () => {
     expect(
       screen.getByText(/sua agenda está vazia, adicione novos contatos!/i)
     ).toBeInTheDocument()
+
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it('deve renderizar o iem na lista quando tiver um', async () => {
+  it('should render the item in the list when it has one in the store', async () => {
     const { container } = renderWithProvider(
       <MemoryRouter>
         <ListContacts />
@@ -54,6 +58,7 @@ describe('<ListContacts />', () => {
     expect(
       screen.getByRole('heading', { name: /alis silva/i })
     ).toBeInTheDocument()
+
     expect(container.firstChild).toMatchSnapshot()
   })
 })

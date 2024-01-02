@@ -1,10 +1,12 @@
 import '@testing-library/jest-dom'
+
 import { render, screen, waitFor } from '@testing-library/react'
-import { vi } from 'vitest'
-import Contact from '..'
-import { TContact } from '../../../types/Contact'
-import { MemoryRouter } from 'react-router-dom'
 import { userEvent } from '@testing-library/user-event'
+import { MemoryRouter } from 'react-router-dom'
+import { vi } from 'vitest'
+
+import { TContact } from '../../../types/Contact'
+import Contact from '..'
 
 const propsContact: TContact = {
   email: 'exemple@gmail.com',
@@ -28,7 +30,7 @@ vi.mock('react-router-dom', async () => {
 describe('<Contact />', () => {
   afterEach(() => vi.clearAllMocks())
 
-  it('should render correctly', () => {
+  it('should render received props correctly', () => {
     const { container } = render(
       <MemoryRouter>
         <Contact {...propsContact} />
@@ -43,16 +45,17 @@ describe('<Contact />', () => {
     expect(tel).toBeInTheDocument()
     expect(email).toBeInTheDocument()
     expect(image).toBeInTheDocument()
+
     expect(container.firstChild).toMatchSnapshot()
   })
-  it('should call navigate with the right url clicking in edit button', async () => {
+  it('should call useNavigate with the right URL when clicking the edit button', async () => {
     render(
       <MemoryRouter>
         <Contact {...propsContact} />
       </MemoryRouter>
     )
 
-    const buttonEdit = screen.getByRole('button', { name: /Editar contato/i })
+    const buttonEdit = screen.getByRole('button', { name: /Icone de lápis/i })
 
     await waitFor(() => userEvent.click(buttonEdit))
 

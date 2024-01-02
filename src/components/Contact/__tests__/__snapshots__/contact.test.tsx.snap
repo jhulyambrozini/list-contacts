@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Contact /> > should render correctly 1`] = `
+exports[`<Contact /> > should render received props correctly 1`] = `
 <div
   class="sc-bcPKhP iXEsBG"
 >
