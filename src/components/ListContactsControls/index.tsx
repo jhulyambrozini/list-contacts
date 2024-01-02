@@ -20,7 +20,7 @@ const ListContactsControls = () => {
         onclick={() => navigate('/new-contact')}
         title="Adicionar contato"
       >
-        <Button.Icon icon={moreIcon} />
+        <Button.Icon alt="Sinal de mais" icon={moreIcon} />
         <Button.Label label="ADICIONAR" />
       </Button.Primary>
 
@@ -31,7 +31,7 @@ const ListContactsControls = () => {
           onclick={() => dispatch(sort())}
           title="ordem alfabetica"
         >
-          <Button.Icon icon={sortIcon} />
+          <Button.Icon alt="Icon de A-Z" icon={sortIcon} />
         </Button.Primary>
       )}
     </Style.ListControls>

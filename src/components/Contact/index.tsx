@@ -27,7 +27,7 @@ const Contact = ({ firstName, lastName, tel, email, id, image }: TContact) => {
         title="Editar contato"
         onclick={() => navigate(`/contact/${id}`)}
       >
-        <ButtonIcon icon={editIcon} />
+        <ButtonIcon alt="Icone de lápis" icon={editIcon} />
       </Button.Circle>
     </Style.ContactContainer>
   )

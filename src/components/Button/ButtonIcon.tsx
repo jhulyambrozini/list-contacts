@@ -1,9 +1,10 @@
 type ButtonIconProps = {
   icon: string
+  alt: string
 }
 
-const ButtonIcon = ({ icon }: ButtonIconProps) => {
-  return <img src={icon} alt="" />
+const ButtonIcon = ({ icon, alt }: ButtonIconProps) => {
+  return <img src={icon} alt={alt} />
 }
 
 export default ButtonIcon

@@ -57,7 +57,7 @@ describe('<ListContactsControls />', () => {
     const { container } = renderComponent()
 
     const sortButton = screen.getByRole('button', {
-      name: /ordem alfabetica/i
+      name: /Icon de A-Z/i
     })
 
     expect(sortButton).toBeInTheDocument()
@@ -68,7 +68,7 @@ describe('<ListContactsControls />', () => {
     const { store } = renderComponent()
 
     const sortButton = screen.getByRole('button', {
-      name: /ordem alfabetica/i
+      name: /Icon de A-Z/i
     })
 
     expect(store.getState().contact.items[0].firstName).toBe('Kamilly')

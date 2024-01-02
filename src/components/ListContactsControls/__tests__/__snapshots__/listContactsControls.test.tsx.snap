@@ -11,7 +11,7 @@ exports[`<ListContactsControls /> > deve renderizar botão de orderna conatato s
     type="button"
   >
     <img
-      alt=""
+      alt="Sinal de mais"
       src="/src/assets/more-icon.svg"
     />
     <span>
@@ -25,7 +25,7 @@ exports[`<ListContactsControls /> > deve renderizar botão de orderna conatato s
     type="button"
   >
     <img
-      alt=""
+      alt="Icon de A-Z"
       src="/src/assets/sort-icon.svg"
     />
   </button>

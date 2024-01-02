@@ -35,7 +35,7 @@ exports[`<Contact /> > should render correctly 1`] = `
     type="button"
   >
     <img
-      alt=""
+      alt="Icone de lápis"
       src="/src/assets/edit-icon.svg"
     />
   </button>

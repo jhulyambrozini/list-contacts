@@ -2,7 +2,7 @@
 
 exports[`<InputGroup /> >  deve renderizar no estado sucesso quando isSucess for true 1`] = `
 <div
-  class="sc-bcPKhP hLFPdp"
+  class="sc-bcPKhP eBMfoZ"
 >
   <label
     for="name"
@@ -21,7 +21,7 @@ exports[`<InputGroup /> >  deve renderizar no estado sucesso quando isSucess for
 
 exports[`<InputGroup /> > deve renderizar com erro quando receber uma mensagem de erro 1`] = `
 <div
-  class="sc-bcPKhP hLFPdp"
+  class="sc-bcPKhP eBMfoZ"
 >
   <label
     for="name"
@@ -42,7 +42,7 @@ exports[`<InputGroup /> > deve renderizar com erro quando receber uma mensagem d
 
 exports[`<InputGroup /> > deve renderizar corretamente sem erro ou sucesso 1`] = `
 <div
-  class="sc-bcPKhP hLFPdp"
+  class="sc-bcPKhP eBMfoZ"
 >
   <label
     for="name"
