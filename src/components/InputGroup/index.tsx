@@ -22,7 +22,7 @@ const InputGroup = ({
   erroMessage,
   isSuccess
 }: InputGroupProps) => (
-  <Style.InputGroupContainer>
+  <Style.InputGroupContainer aria-label="Input group">
     <label htmlFor={id}>{label}</label>
     <input
       type={type}

@@ -18,7 +18,7 @@ const ContactProfile = () => {
   return (
     <>
       <Style.ContactProfileContainer className="container">
-        <Style.Background>
+        <Style.Background aria-label="background">
           <Link to="/" title="ir para Home">
             <img src={backIcon} alt="Seta de voltar" />
           </Link>

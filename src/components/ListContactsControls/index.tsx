@@ -24,7 +24,7 @@ const ListContactsControls = () => {
         onclick={() => navigate('/new-contact')}
         title="Adicionar contato"
       >
-        <Button.Icon alt="Sinal de mais" icon={moreIcon} />
+        <Button.Icon alt="Icone de mais" icon={moreIcon} />
         <Button.Label label="ADICIONAR" />
       </Button.Primary>
 

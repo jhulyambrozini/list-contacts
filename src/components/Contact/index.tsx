@@ -18,7 +18,7 @@ const Contact = ({ firstName, lastName, tel, email, id, image }: TContact) => {
         <div className="line-deco"></div>
         <img src={image} alt={fullName} />
       </Style.Image>
-      <Style.Infos>
+      <Style.Infos aria-label="contact info">
         <h2>{fullName}</h2>
         <span>{tel}</span>
         <span>{email}</span>
@@ -29,7 +29,7 @@ const Contact = ({ firstName, lastName, tel, email, id, image }: TContact) => {
         title="Editar contato"
         onclick={() => navigate(`/contact/${id}`)}
       >
-        <Button.Icon alt="Icone de lápis" icon={editIcon} />
+        <Button.Icon alt="Icone de editar" icon={editIcon} />
       </Button.Circle>
     </Style.ContactContainer>
   )

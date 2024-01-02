@@ -55,7 +55,7 @@ describe('<Contact />', () => {
       </MemoryRouter>
     )
 
-    const buttonEdit = screen.getByRole('button', { name: /Icone de lápis/i })
+    const buttonEdit = screen.getByRole('button', { name: /Icone de editar/i })
 
     await waitFor(() => userEvent.click(buttonEdit))
 

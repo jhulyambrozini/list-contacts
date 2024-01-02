@@ -145,7 +145,7 @@ const Form = ({ id }: FormProps) => {
   return (
     <Style.FormContainer onSubmit={form.handleSubmit} data-testid="form">
       <Style.PhotoContainer>
-        <Style.InputAddPhotoContainer>
+        <Style.InputAddPhotoContainer aria-label="Input image">
           <input
             type="file"
             onChange={handleImageChange}
