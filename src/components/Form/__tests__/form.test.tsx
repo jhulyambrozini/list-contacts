@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom'
 import 'vitest-canvas-mock'
+import { vi } from 'vitest'
 
 import userEvent from '@testing-library/user-event'
 import { fireEvent, screen, waitFor } from '@testing-library/react'
@@ -33,7 +34,12 @@ const renderComponentEdit = () => {
   return { store, container }
 }
 
+const mockAlert = vi.spyOn(global, 'alert')
+
 describe('<Form />', () => {
+  afterEach(() => {
+    vi.clearAllMocks()
+  })
   it('should only render the save button on the newContact page', () => {
     const { container } = renderWithProvider(
       <MemoryRouter>
@@ -89,6 +95,62 @@ describe('<Form />', () => {
 
     await waitFor(() => {
       expect(store.getState().contact.items.length).toEqual(1)
+    })
+  })
+
+  it('should render a alert when try to register a existing contact', async () => {
+    renderWithProvider(
+      <MemoryRouter>
+        <Form />
+      </MemoryRouter>,
+      {
+        preloadedState: {
+          contact: {
+            items: [
+              {
+                email: 'exemple@gmail.com',
+                id: '1',
+                image: '/img.png',
+                firstName: 'Kamilly',
+                lastName: 'Silva',
+                tel: '11 99999-9999'
+              }
+            ]
+          }
+        }
+      }
+    )
+
+    const inputFirstName = screen.getByRole('textbox', {
+      name: 'Nome'
+    })
+    const inputLastName = screen.getByRole('textbox', {
+      name: /sobrenome/i
+    })
+    const inputEmail = screen.getByRole('textbox', {
+      name: /email/i
+    })
+    const inputPhone = screen.getByRole('textbox', {
+      name: /telefone/i
+    })
+
+    fireEvent.change(inputFirstName, { target: { value: 'kamilla' } })
+    fireEvent.change(inputLastName, { target: { value: 'silva' } })
+    fireEvent.change(inputEmail, {
+      target: { value: 'exemplekamilly@gmail.com' }
+    })
+    fireEvent.change(inputPhone, { target: { value: '11 99999-9999' } })
+
+    const registerForm = screen.getByTestId('form')
+
+    await waitFor(() => {
+      fireEvent.submit(registerForm)
+    })
+
+    await waitFor(() => {
+      expect(mockAlert).toHaveBeenCalledWith(
+        'Este telefone: 11 99999-9999 ou email: exemplekamilly@gmail.com já está na agenda'
+      )
     })
   })
 
